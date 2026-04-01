@@ -142,6 +142,19 @@ test_thread_pool/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread_pool.dir/build.make CMakeFiles/test_thread_pool.dir/build
 .PHONY : test_thread_pool/fast
 
+#=============================================================================
+# Target rules for targets named test_memory_pool
+
+# Build rule for target.
+test_memory_pool: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_memory_pool
+.PHONY : test_memory_pool
+
+# fast build rule for target.
+test_memory_pool/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/build
+.PHONY : test_memory_pool/fast
+
 home/zt/server/tcp_server/src/util/log.o: home/zt/server/tcp_server/src/util/log.cpp.o
 .PHONY : home/zt/server/tcp_server/src/util/log.o
 
@@ -165,6 +178,30 @@ home/zt/server/tcp_server/src/util/log.s: home/zt/server/tcp_server/src/util/log
 home/zt/server/tcp_server/src/util/log.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/home/zt/server/tcp_server/src/util/log.cpp.s
 .PHONY : home/zt/server/tcp_server/src/util/log.cpp.s
+
+home/zt/server/tcp_server/src/util/memory_pool.o: home/zt/server/tcp_server/src/util/memory_pool.cpp.o
+.PHONY : home/zt/server/tcp_server/src/util/memory_pool.o
+
+# target to build an object file
+home/zt/server/tcp_server/src/util/memory_pool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.o
+.PHONY : home/zt/server/tcp_server/src/util/memory_pool.cpp.o
+
+home/zt/server/tcp_server/src/util/memory_pool.i: home/zt/server/tcp_server/src/util/memory_pool.cpp.i
+.PHONY : home/zt/server/tcp_server/src/util/memory_pool.i
+
+# target to preprocess a source file
+home/zt/server/tcp_server/src/util/memory_pool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.i
+.PHONY : home/zt/server/tcp_server/src/util/memory_pool.cpp.i
+
+home/zt/server/tcp_server/src/util/memory_pool.s: home/zt/server/tcp_server/src/util/memory_pool.cpp.s
+.PHONY : home/zt/server/tcp_server/src/util/memory_pool.s
+
+# target to generate assembly for a file
+home/zt/server/tcp_server/src/util/memory_pool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.s
+.PHONY : home/zt/server/tcp_server/src/util/memory_pool.cpp.s
 
 home/zt/server/tcp_server/src/util/thread_pool.o: home/zt/server/tcp_server/src/util/thread_pool.cpp.o
 .PHONY : home/zt/server/tcp_server/src/util/thread_pool.o
@@ -214,6 +251,30 @@ test_log.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/test_log.cpp.s
 .PHONY : test_log.cpp.s
 
+test_memory_pool.o: test_memory_pool.cpp.o
+.PHONY : test_memory_pool.o
+
+# target to build an object file
+test_memory_pool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/test_memory_pool.cpp.o
+.PHONY : test_memory_pool.cpp.o
+
+test_memory_pool.i: test_memory_pool.cpp.i
+.PHONY : test_memory_pool.i
+
+# target to preprocess a source file
+test_memory_pool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/test_memory_pool.cpp.i
+.PHONY : test_memory_pool.cpp.i
+
+test_memory_pool.s: test_memory_pool.cpp.s
+.PHONY : test_memory_pool.s
+
+# target to generate assembly for a file
+test_memory_pool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/test_memory_pool.cpp.s
+.PHONY : test_memory_pool.cpp.s
+
 test_thread_pool.o: test_thread_pool.cpp.o
 .PHONY : test_thread_pool.o
 
@@ -247,16 +308,23 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test_log"
+	@echo "... test_memory_pool"
 	@echo "... test_thread_pool"
 	@echo "... home/zt/server/tcp_server/src/util/log.o"
 	@echo "... home/zt/server/tcp_server/src/util/log.i"
 	@echo "... home/zt/server/tcp_server/src/util/log.s"
+	@echo "... home/zt/server/tcp_server/src/util/memory_pool.o"
+	@echo "... home/zt/server/tcp_server/src/util/memory_pool.i"
+	@echo "... home/zt/server/tcp_server/src/util/memory_pool.s"
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.o"
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.i"
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.s"
 	@echo "... test_log.o"
 	@echo "... test_log.i"
 	@echo "... test_log.s"
+	@echo "... test_memory_pool.o"
+	@echo "... test_memory_pool.i"
+	@echo "... test_memory_pool.s"
 	@echo "... test_thread_pool.o"
 	@echo "... test_thread_pool.i"
 	@echo "... test_thread_pool.s"

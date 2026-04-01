@@ -16,6 +16,11 @@ target_link_libraries(test_log pthread)
 add_executable(test_thread_pool test_thread_pool.cpp ../src/util/thread_pool.cpp)
 target_link_libraries(test_thread_pool pthread)
 
+# 添加内存池测试可执行文件
+add_executable(test_memory_pool test_memory_pool.cpp ../src/util/memory_pool.cpp)
+target_link_libraries(test_memory_pool pthread)
+
 # 添加测试
 add_test(NAME LoggerTest COMMAND test_log)
 add_test(NAME ThreadPoolTest COMMAND test_thread_pool)
+add_test(NAME MemoryPoolTest COMMAND test_memory_pool)
