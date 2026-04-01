@@ -20,7 +20,12 @@ target_link_libraries(test_thread_pool pthread)
 add_executable(test_memory_pool test_memory_pool.cpp ../src/util/memory_pool.cpp)
 target_link_libraries(test_memory_pool pthread)
 
+# 添加Socket测试可执行文件
+add_executable(test_socket test_socket.cpp ../src/net/socket.cpp ../src/util/log.cpp)
+target_link_libraries(test_socket pthread)
+
 # 添加测试
 add_test(NAME LoggerTest COMMAND test_log)
 add_test(NAME ThreadPoolTest COMMAND test_thread_pool)
 add_test(NAME MemoryPoolTest COMMAND test_memory_pool)
+add_test(NAME SocketTest COMMAND test_socket)

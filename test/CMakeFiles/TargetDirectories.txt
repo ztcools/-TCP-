@@ -1,5 +1,6 @@
 /home/zt/server/tcp_server/test/CMakeFiles/test_log.dir
 /home/zt/server/tcp_server/test/CMakeFiles/test_thread_pool.dir
 /home/zt/server/tcp_server/test/CMakeFiles/test_memory_pool.dir
+/home/zt/server/tcp_server/test/CMakeFiles/test_socket.dir
 /home/zt/server/tcp_server/test/CMakeFiles/edit_cache.dir
 /home/zt/server/tcp_server/test/CMakeFiles/rebuild_cache.dir

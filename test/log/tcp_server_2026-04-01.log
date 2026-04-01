@@ -1,0 +1,28 @@
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:69] Socket bound: 127.0.0.1:8888
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:76] Socket listening: backlog=128
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=5
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=6
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=7
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=8
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=4
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=5
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=6
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=7
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:156] Socket closed: fd=8
+[2026-04-01 12:52:49] [Thread:140616946226752] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-01 12:52:49] [Thread:140616946226752] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:69] Socket bound: 127.0.0.1:9999
+[2026-04-01 12:52:49] [Thread:140616946226752] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:76] Socket listening: backlog=128
+[2026-04-01 12:52:49] [Thread:140616946226752] [INFO] [/home/zt/server/tcp_server/test/test_socket.cpp:78] Server waiting for connection...
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/src/net/socket.cpp:48] Socket created: fd=5
+[2026-04-01 12:52:49] [Thread:140616946242496] [INFO] [/home/zt/server/tcp_server/test/test_socket.cpp:113] Client connecting to server...

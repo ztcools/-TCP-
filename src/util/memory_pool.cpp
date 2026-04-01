@@ -7,7 +7,7 @@
 namespace util {
 
 MemoryPool::MemoryPool(size_t block_size, size_t num_blocks)
-    : block_size_(block_size < sizeof(Block*) ? sizeof(Block*) : block_size),
+    : block_size_(block_size < sizeof(Block) ? sizeof(Block) : block_size),
       num_blocks_(num_blocks),
       allocated_count_(0),
       free_list_(nullptr),
