@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_epoll.dir/test_epoll.cpp.o CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/epoll.cpp.o CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/socket.cpp.o CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/util/log.cpp.o -o test_epoll  -lpthread 

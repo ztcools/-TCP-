@@ -24,8 +24,13 @@ target_link_libraries(test_memory_pool pthread)
 add_executable(test_socket test_socket.cpp ../src/net/socket.cpp ../src/util/log.cpp)
 target_link_libraries(test_socket pthread)
 
+# 添加Epoll测试可执行文件
+add_executable(test_epoll test_epoll.cpp ../src/net/epoll.cpp ../src/net/socket.cpp ../src/util/log.cpp)
+target_link_libraries(test_epoll pthread)
+
 # 添加测试
 add_test(NAME LoggerTest COMMAND test_log)
 add_test(NAME ThreadPoolTest COMMAND test_thread_pool)
 add_test(NAME MemoryPoolTest COMMAND test_memory_pool)
 add_test(NAME SocketTest COMMAND test_socket)
+add_test(NAME EpollTest COMMAND test_epoll)

@@ -168,12 +168,50 @@ test_socket/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/build
 .PHONY : test_socket/fast
 
+#=============================================================================
+# Target rules for targets named test_epoll
+
+# Build rule for target.
+test_epoll: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_epoll
+.PHONY : test_epoll
+
+# fast build rule for target.
+test_epoll/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/build
+.PHONY : test_epoll/fast
+
+home/zt/server/tcp_server/src/net/epoll.o: home/zt/server/tcp_server/src/net/epoll.cpp.o
+.PHONY : home/zt/server/tcp_server/src/net/epoll.o
+
+# target to build an object file
+home/zt/server/tcp_server/src/net/epoll.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/epoll.cpp.o
+.PHONY : home/zt/server/tcp_server/src/net/epoll.cpp.o
+
+home/zt/server/tcp_server/src/net/epoll.i: home/zt/server/tcp_server/src/net/epoll.cpp.i
+.PHONY : home/zt/server/tcp_server/src/net/epoll.i
+
+# target to preprocess a source file
+home/zt/server/tcp_server/src/net/epoll.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/epoll.cpp.i
+.PHONY : home/zt/server/tcp_server/src/net/epoll.cpp.i
+
+home/zt/server/tcp_server/src/net/epoll.s: home/zt/server/tcp_server/src/net/epoll.cpp.s
+.PHONY : home/zt/server/tcp_server/src/net/epoll.s
+
+# target to generate assembly for a file
+home/zt/server/tcp_server/src/net/epoll.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/epoll.cpp.s
+.PHONY : home/zt/server/tcp_server/src/net/epoll.cpp.s
+
 home/zt/server/tcp_server/src/net/socket.o: home/zt/server/tcp_server/src/net/socket.cpp.o
 .PHONY : home/zt/server/tcp_server/src/net/socket.o
 
 # target to build an object file
 home/zt/server/tcp_server/src/net/socket.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/net/socket.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/socket.cpp.o
 .PHONY : home/zt/server/tcp_server/src/net/socket.cpp.o
 
 home/zt/server/tcp_server/src/net/socket.i: home/zt/server/tcp_server/src/net/socket.cpp.i
@@ -182,6 +220,7 @@ home/zt/server/tcp_server/src/net/socket.i: home/zt/server/tcp_server/src/net/so
 # target to preprocess a source file
 home/zt/server/tcp_server/src/net/socket.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/net/socket.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/socket.cpp.i
 .PHONY : home/zt/server/tcp_server/src/net/socket.cpp.i
 
 home/zt/server/tcp_server/src/net/socket.s: home/zt/server/tcp_server/src/net/socket.cpp.s
@@ -190,6 +229,7 @@ home/zt/server/tcp_server/src/net/socket.s: home/zt/server/tcp_server/src/net/so
 # target to generate assembly for a file
 home/zt/server/tcp_server/src/net/socket.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/net/socket.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/socket.cpp.s
 .PHONY : home/zt/server/tcp_server/src/net/socket.cpp.s
 
 home/zt/server/tcp_server/src/util/log.o: home/zt/server/tcp_server/src/util/log.cpp.o
@@ -199,6 +239,7 @@ home/zt/server/tcp_server/src/util/log.o: home/zt/server/tcp_server/src/util/log
 home/zt/server/tcp_server/src/util/log.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/home/zt/server/tcp_server/src/util/log.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/util/log.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/util/log.cpp.o
 .PHONY : home/zt/server/tcp_server/src/util/log.cpp.o
 
 home/zt/server/tcp_server/src/util/log.i: home/zt/server/tcp_server/src/util/log.cpp.i
@@ -208,6 +249,7 @@ home/zt/server/tcp_server/src/util/log.i: home/zt/server/tcp_server/src/util/log
 home/zt/server/tcp_server/src/util/log.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/home/zt/server/tcp_server/src/util/log.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/util/log.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/util/log.cpp.i
 .PHONY : home/zt/server/tcp_server/src/util/log.cpp.i
 
 home/zt/server/tcp_server/src/util/log.s: home/zt/server/tcp_server/src/util/log.cpp.s
@@ -217,6 +259,7 @@ home/zt/server/tcp_server/src/util/log.s: home/zt/server/tcp_server/src/util/log
 home/zt/server/tcp_server/src/util/log.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/home/zt/server/tcp_server/src/util/log.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/util/log.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/util/log.cpp.s
 .PHONY : home/zt/server/tcp_server/src/util/log.cpp.s
 
 home/zt/server/tcp_server/src/util/memory_pool.o: home/zt/server/tcp_server/src/util/memory_pool.cpp.o
@@ -266,6 +309,30 @@ home/zt/server/tcp_server/src/util/thread_pool.s: home/zt/server/tcp_server/src/
 home/zt/server/tcp_server/src/util/thread_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread_pool.dir/build.make CMakeFiles/test_thread_pool.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.s
 .PHONY : home/zt/server/tcp_server/src/util/thread_pool.cpp.s
+
+test_epoll.o: test_epoll.cpp.o
+.PHONY : test_epoll.o
+
+# target to build an object file
+test_epoll.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/test_epoll.cpp.o
+.PHONY : test_epoll.cpp.o
+
+test_epoll.i: test_epoll.cpp.i
+.PHONY : test_epoll.i
+
+# target to preprocess a source file
+test_epoll.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/test_epoll.cpp.i
+.PHONY : test_epoll.cpp.i
+
+test_epoll.s: test_epoll.cpp.s
+.PHONY : test_epoll.s
+
+# target to generate assembly for a file
+test_epoll.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/test_epoll.cpp.s
+.PHONY : test_epoll.cpp.s
 
 test_log.o: test_log.cpp.o
 .PHONY : test_log.o
@@ -371,10 +438,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test_epoll"
 	@echo "... test_log"
 	@echo "... test_memory_pool"
 	@echo "... test_socket"
 	@echo "... test_thread_pool"
+	@echo "... home/zt/server/tcp_server/src/net/epoll.o"
+	@echo "... home/zt/server/tcp_server/src/net/epoll.i"
+	@echo "... home/zt/server/tcp_server/src/net/epoll.s"
 	@echo "... home/zt/server/tcp_server/src/net/socket.o"
 	@echo "... home/zt/server/tcp_server/src/net/socket.i"
 	@echo "... home/zt/server/tcp_server/src/net/socket.s"
@@ -387,6 +458,9 @@ help:
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.o"
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.i"
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.s"
+	@echo "... test_epoll.o"
+	@echo "... test_epoll.i"
+	@echo "... test_epoll.s"
 	@echo "... test_log.o"
 	@echo "... test_log.i"
 	@echo "... test_log.s"
