@@ -159,6 +159,12 @@ void Socket::Close() {
   }
 }
 
+int Socket::Release() {
+  int fd = fd_;
+  fd_ = -1;
+  return fd;
+}
+
 void Socket::SetNonBlocking() {
   int flags = fcntl(fd_, F_GETFL, 0);
   CheckError(flags, "fcntl(F_GETFL)");
@@ -184,6 +190,46 @@ void Socket::SetTcpNoDelay() {
   int opt = 1;
   int ret = setsockopt(fd_, IPPROTO_TCP, TCP_NODELAY, &opt, sizeof(opt));
   CheckError(ret, "setsockopt(TCP_NODELAY)");
+}
+
+std::string Socket::GetPeerIp() const {
+  struct sockaddr_in addr;
+  socklen_t len = sizeof(addr);
+  if (getpeername(fd_, (struct sockaddr*)&addr, &len) == 0) {
+    char ip[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &addr.sin_addr, ip, INET_ADDRSTRLEN);
+    return std::string(ip);
+  }
+  return "0.0.0.0";
+}
+
+uint16_t Socket::GetPeerPort() const {
+  struct sockaddr_in addr;
+  socklen_t len = sizeof(addr);
+  if (getpeername(fd_, (struct sockaddr*)&addr, &len) == 0) {
+    return ntohs(addr.sin_port);
+  }
+  return 0;
+}
+
+std::string Socket::GetLocalIp() const {
+  struct sockaddr_in addr;
+  socklen_t len = sizeof(addr);
+  if (getsockname(fd_, (struct sockaddr*)&addr, &len) == 0) {
+    char ip[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &addr.sin_addr, ip, INET_ADDRSTRLEN);
+    return std::string(ip);
+  }
+  return "0.0.0.0";
+}
+
+uint16_t Socket::GetLocalPort() const {
+  struct sockaddr_in addr;
+  socklen_t len = sizeof(addr);
+  if (getsockname(fd_, (struct sockaddr*)&addr, &len) == 0) {
+    return ntohs(addr.sin_port);
+  }
+  return 0;
 }
 
 void Socket::CheckError(int ret, const char* operation) {

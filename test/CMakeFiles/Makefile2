@@ -68,6 +68,11 @@ all: CMakeFiles/test_thread_pool.dir/all
 all: CMakeFiles/test_memory_pool.dir/all
 all: CMakeFiles/test_socket.dir/all
 all: CMakeFiles/test_epoll.dir/all
+all: CMakeFiles/test_connection.dir/all
+all: CMakeFiles/test_connection_pool.dir/all
+all: CMakeFiles/test_echo_service.dir/all
+all: CMakeFiles/test_server.dir/all
+all: CMakeFiles/benchmark.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -80,6 +85,11 @@ clean: CMakeFiles/test_thread_pool.dir/clean
 clean: CMakeFiles/test_memory_pool.dir/clean
 clean: CMakeFiles/test_socket.dir/clean
 clean: CMakeFiles/test_epoll.dir/clean
+clean: CMakeFiles/test_connection.dir/clean
+clean: CMakeFiles/test_connection_pool.dir/clean
+clean: CMakeFiles/test_echo_service.dir/clean
+clean: CMakeFiles/test_server.dir/clean
+clean: CMakeFiles/benchmark.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -89,7 +99,7 @@ clean: CMakeFiles/test_epoll.dir/clean
 CMakeFiles/test_log.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=6,7,8 "Built target test_log"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=26,27,28 "Built target test_log"
 .PHONY : CMakeFiles/test_log.dir/all
 
 # Build rule for subdir invocation for target.
@@ -115,7 +125,7 @@ CMakeFiles/test_log.dir/clean:
 CMakeFiles/test_thread_pool.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread_pool.dir/build.make CMakeFiles/test_thread_pool.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread_pool.dir/build.make CMakeFiles/test_thread_pool.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=16,17,18 "Built target test_thread_pool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=42,43,44 "Built target test_thread_pool"
 .PHONY : CMakeFiles/test_thread_pool.dir/all
 
 # Build rule for subdir invocation for target.
@@ -141,7 +151,7 @@ CMakeFiles/test_thread_pool.dir/clean:
 CMakeFiles/test_memory_pool.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=9,10,11 "Built target test_memory_pool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=29,30,31 "Built target test_memory_pool"
 .PHONY : CMakeFiles/test_memory_pool.dir/all
 
 # Build rule for subdir invocation for target.
@@ -167,7 +177,7 @@ CMakeFiles/test_memory_pool.dir/clean:
 CMakeFiles/test_socket.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=12,13,14,15 "Built target test_socket"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=38,39,40,41 "Built target test_socket"
 .PHONY : CMakeFiles/test_socket.dir/all
 
 # Build rule for subdir invocation for target.
@@ -193,7 +203,7 @@ CMakeFiles/test_socket.dir/clean:
 CMakeFiles/test_epoll.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=1,2,3,4,5 "Built target test_epoll"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=21,22,23,24,25 "Built target test_epoll"
 .PHONY : CMakeFiles/test_epoll.dir/all
 
 # Build rule for subdir invocation for target.
@@ -211,6 +221,136 @@ test_epoll: CMakeFiles/test_epoll.dir/rule
 CMakeFiles/test_epoll.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/clean
 .PHONY : CMakeFiles/test_epoll.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_connection.dir
+
+# All Build rule for target.
+CMakeFiles/test_connection.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=3,4,5,6,7 "Built target test_connection"
+.PHONY : CMakeFiles/test_connection.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_connection.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_connection.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 0
+.PHONY : CMakeFiles/test_connection.dir/rule
+
+# Convenience name for target.
+test_connection: CMakeFiles/test_connection.dir/rule
+.PHONY : test_connection
+
+# clean rule for target.
+CMakeFiles/test_connection.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/clean
+.PHONY : CMakeFiles/test_connection.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_connection_pool.dir
+
+# All Build rule for target.
+CMakeFiles/test_connection_pool.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=8,9,10,11,12,13 "Built target test_connection_pool"
+.PHONY : CMakeFiles/test_connection_pool.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_connection_pool.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_connection_pool.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 0
+.PHONY : CMakeFiles/test_connection_pool.dir/rule
+
+# Convenience name for target.
+test_connection_pool: CMakeFiles/test_connection_pool.dir/rule
+.PHONY : test_connection_pool
+
+# clean rule for target.
+CMakeFiles/test_connection_pool.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/clean
+.PHONY : CMakeFiles/test_connection_pool.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_echo_service.dir
+
+# All Build rule for target.
+CMakeFiles/test_echo_service.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=14,15,16,17,18,19,20 "Built target test_echo_service"
+.PHONY : CMakeFiles/test_echo_service.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_echo_service.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_echo_service.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 0
+.PHONY : CMakeFiles/test_echo_service.dir/rule
+
+# Convenience name for target.
+test_echo_service: CMakeFiles/test_echo_service.dir/rule
+.PHONY : test_echo_service
+
+# clean rule for target.
+CMakeFiles/test_echo_service.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/clean
+.PHONY : CMakeFiles/test_echo_service.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_server.dir
+
+# All Build rule for target.
+CMakeFiles/test_server.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=32,33,34,35,36,37 "Built target test_server"
+.PHONY : CMakeFiles/test_server.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 0
+.PHONY : CMakeFiles/test_server.dir/rule
+
+# Convenience name for target.
+test_server: CMakeFiles/test_server.dir/rule
+.PHONY : test_server
+
+# clean rule for target.
+CMakeFiles/test_server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/clean
+.PHONY : CMakeFiles/test_server.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/benchmark.dir
+
+# All Build rule for target.
+CMakeFiles/benchmark.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zt/server/tcp_server/test/CMakeFiles --progress-num=1,2 "Built target benchmark"
+.PHONY : CMakeFiles/benchmark.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/benchmark.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/benchmark.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zt/server/tcp_server/test/CMakeFiles 0
+.PHONY : CMakeFiles/benchmark.dir/rule
+
+# Convenience name for target.
+benchmark: CMakeFiles/benchmark.dir/rule
+.PHONY : benchmark
+
+# clean rule for target.
+CMakeFiles/benchmark.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/clean
+.PHONY : CMakeFiles/benchmark.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/benchmark.dir/benchmark.cpp.o -o benchmark  -lpthread 

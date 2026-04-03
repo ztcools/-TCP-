@@ -3,5 +3,10 @@
 /home/zt/server/tcp_server/test/CMakeFiles/test_memory_pool.dir
 /home/zt/server/tcp_server/test/CMakeFiles/test_socket.dir
 /home/zt/server/tcp_server/test/CMakeFiles/test_epoll.dir
+/home/zt/server/tcp_server/test/CMakeFiles/test_connection.dir
+/home/zt/server/tcp_server/test/CMakeFiles/test_connection_pool.dir
+/home/zt/server/tcp_server/test/CMakeFiles/test_echo_service.dir
+/home/zt/server/tcp_server/test/CMakeFiles/test_server.dir
+/home/zt/server/tcp_server/test/CMakeFiles/benchmark.dir
 /home/zt/server/tcp_server/test/CMakeFiles/edit_cache.dir
 /home/zt/server/tcp_server/test/CMakeFiles/rebuild_cache.dir

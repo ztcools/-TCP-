@@ -32,12 +32,19 @@ class Socket {
   int GetFd() const;
   bool IsValid() const;
   void Close();
+  int Release();
 
- private:
   void SetNonBlocking();
   void SetReuseAddr();
   void SetReusePort();
   void SetTcpNoDelay();
+
+  std::string GetPeerIp() const;
+  uint16_t GetPeerPort() const;
+  std::string GetLocalIp() const;
+  uint16_t GetLocalPort() const;
+
+ private:
   void CheckError(int ret, const char* operation);
 
   int fd_;

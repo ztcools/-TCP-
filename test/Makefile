@@ -181,6 +181,149 @@ test_epoll/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/build
 .PHONY : test_epoll/fast
 
+#=============================================================================
+# Target rules for targets named test_connection
+
+# Build rule for target.
+test_connection: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_connection
+.PHONY : test_connection
+
+# fast build rule for target.
+test_connection/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/build
+.PHONY : test_connection/fast
+
+#=============================================================================
+# Target rules for targets named test_connection_pool
+
+# Build rule for target.
+test_connection_pool: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_connection_pool
+.PHONY : test_connection_pool
+
+# fast build rule for target.
+test_connection_pool/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/build
+.PHONY : test_connection_pool/fast
+
+#=============================================================================
+# Target rules for targets named test_echo_service
+
+# Build rule for target.
+test_echo_service: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_echo_service
+.PHONY : test_echo_service
+
+# fast build rule for target.
+test_echo_service/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/build
+.PHONY : test_echo_service/fast
+
+#=============================================================================
+# Target rules for targets named test_server
+
+# Build rule for target.
+test_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_server
+.PHONY : test_server
+
+# fast build rule for target.
+test_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/build
+.PHONY : test_server/fast
+
+#=============================================================================
+# Target rules for targets named benchmark
+
+# Build rule for target.
+benchmark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark
+.PHONY : benchmark
+
+# fast build rule for target.
+benchmark/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/build
+.PHONY : benchmark/fast
+
+benchmark.o: benchmark.cpp.o
+.PHONY : benchmark.o
+
+# target to build an object file
+benchmark.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/benchmark.cpp.o
+.PHONY : benchmark.cpp.o
+
+benchmark.i: benchmark.cpp.i
+.PHONY : benchmark.i
+
+# target to preprocess a source file
+benchmark.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/benchmark.cpp.i
+.PHONY : benchmark.cpp.i
+
+benchmark.s: benchmark.cpp.s
+.PHONY : benchmark.s
+
+# target to generate assembly for a file
+benchmark.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/benchmark.cpp.s
+.PHONY : benchmark.cpp.s
+
+home/zt/server/tcp_server/src/conn/connection.o: home/zt/server/tcp_server/src/conn/connection.cpp.o
+.PHONY : home/zt/server/tcp_server/src/conn/connection.o
+
+# target to build an object file
+home/zt/server/tcp_server/src/conn/connection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/conn/connection.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/conn/connection.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/conn/connection.cpp.o
+.PHONY : home/zt/server/tcp_server/src/conn/connection.cpp.o
+
+home/zt/server/tcp_server/src/conn/connection.i: home/zt/server/tcp_server/src/conn/connection.cpp.i
+.PHONY : home/zt/server/tcp_server/src/conn/connection.i
+
+# target to preprocess a source file
+home/zt/server/tcp_server/src/conn/connection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/conn/connection.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/conn/connection.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/conn/connection.cpp.i
+.PHONY : home/zt/server/tcp_server/src/conn/connection.cpp.i
+
+home/zt/server/tcp_server/src/conn/connection.s: home/zt/server/tcp_server/src/conn/connection.cpp.s
+.PHONY : home/zt/server/tcp_server/src/conn/connection.s
+
+# target to generate assembly for a file
+home/zt/server/tcp_server/src/conn/connection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/conn/connection.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/conn/connection.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/conn/connection.cpp.s
+.PHONY : home/zt/server/tcp_server/src/conn/connection.cpp.s
+
+home/zt/server/tcp_server/src/conn/connection_pool.o: home/zt/server/tcp_server/src/conn/connection_pool.cpp.o
+.PHONY : home/zt/server/tcp_server/src/conn/connection_pool.o
+
+# target to build an object file
+home/zt/server/tcp_server/src/conn/connection_pool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/conn/connection_pool.cpp.o
+.PHONY : home/zt/server/tcp_server/src/conn/connection_pool.cpp.o
+
+home/zt/server/tcp_server/src/conn/connection_pool.i: home/zt/server/tcp_server/src/conn/connection_pool.cpp.i
+.PHONY : home/zt/server/tcp_server/src/conn/connection_pool.i
+
+# target to preprocess a source file
+home/zt/server/tcp_server/src/conn/connection_pool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/conn/connection_pool.cpp.i
+.PHONY : home/zt/server/tcp_server/src/conn/connection_pool.cpp.i
+
+home/zt/server/tcp_server/src/conn/connection_pool.s: home/zt/server/tcp_server/src/conn/connection_pool.cpp.s
+.PHONY : home/zt/server/tcp_server/src/conn/connection_pool.s
+
+# target to generate assembly for a file
+home/zt/server/tcp_server/src/conn/connection_pool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/conn/connection_pool.cpp.s
+.PHONY : home/zt/server/tcp_server/src/conn/connection_pool.cpp.s
+
 home/zt/server/tcp_server/src/net/epoll.o: home/zt/server/tcp_server/src/net/epoll.cpp.o
 .PHONY : home/zt/server/tcp_server/src/net/epoll.o
 
@@ -212,6 +355,7 @@ home/zt/server/tcp_server/src/net/socket.o: home/zt/server/tcp_server/src/net/so
 home/zt/server/tcp_server/src/net/socket.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/net/socket.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/socket.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/net/socket.cpp.o
 .PHONY : home/zt/server/tcp_server/src/net/socket.cpp.o
 
 home/zt/server/tcp_server/src/net/socket.i: home/zt/server/tcp_server/src/net/socket.cpp.i
@@ -221,6 +365,7 @@ home/zt/server/tcp_server/src/net/socket.i: home/zt/server/tcp_server/src/net/so
 home/zt/server/tcp_server/src/net/socket.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/net/socket.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/socket.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/net/socket.cpp.i
 .PHONY : home/zt/server/tcp_server/src/net/socket.cpp.i
 
 home/zt/server/tcp_server/src/net/socket.s: home/zt/server/tcp_server/src/net/socket.cpp.s
@@ -230,7 +375,32 @@ home/zt/server/tcp_server/src/net/socket.s: home/zt/server/tcp_server/src/net/so
 home/zt/server/tcp_server/src/net/socket.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/net/socket.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/net/socket.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/net/socket.cpp.s
 .PHONY : home/zt/server/tcp_server/src/net/socket.cpp.s
+
+home/zt/server/tcp_server/src/service/echo_service.o: home/zt/server/tcp_server/src/service/echo_service.cpp.o
+.PHONY : home/zt/server/tcp_server/src/service/echo_service.o
+
+# target to build an object file
+home/zt/server/tcp_server/src/service/echo_service.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/service/echo_service.cpp.o
+.PHONY : home/zt/server/tcp_server/src/service/echo_service.cpp.o
+
+home/zt/server/tcp_server/src/service/echo_service.i: home/zt/server/tcp_server/src/service/echo_service.cpp.i
+.PHONY : home/zt/server/tcp_server/src/service/echo_service.i
+
+# target to preprocess a source file
+home/zt/server/tcp_server/src/service/echo_service.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/service/echo_service.cpp.i
+.PHONY : home/zt/server/tcp_server/src/service/echo_service.cpp.i
+
+home/zt/server/tcp_server/src/service/echo_service.s: home/zt/server/tcp_server/src/service/echo_service.cpp.s
+.PHONY : home/zt/server/tcp_server/src/service/echo_service.s
+
+# target to generate assembly for a file
+home/zt/server/tcp_server/src/service/echo_service.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/service/echo_service.cpp.s
+.PHONY : home/zt/server/tcp_server/src/service/echo_service.cpp.s
 
 home/zt/server/tcp_server/src/util/log.o: home/zt/server/tcp_server/src/util/log.cpp.o
 .PHONY : home/zt/server/tcp_server/src/util/log.o
@@ -240,6 +410,10 @@ home/zt/server/tcp_server/src/util/log.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/home/zt/server/tcp_server/src/util/log.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/util/log.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/util/log.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/util/log.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/util/log.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/log.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/log.cpp.o
 .PHONY : home/zt/server/tcp_server/src/util/log.cpp.o
 
 home/zt/server/tcp_server/src/util/log.i: home/zt/server/tcp_server/src/util/log.cpp.i
@@ -250,6 +424,10 @@ home/zt/server/tcp_server/src/util/log.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/home/zt/server/tcp_server/src/util/log.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/util/log.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/util/log.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/util/log.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/util/log.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/log.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/log.cpp.i
 .PHONY : home/zt/server/tcp_server/src/util/log.cpp.i
 
 home/zt/server/tcp_server/src/util/log.s: home/zt/server/tcp_server/src/util/log.cpp.s
@@ -260,6 +438,10 @@ home/zt/server/tcp_server/src/util/log.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/home/zt/server/tcp_server/src/util/log.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/home/zt/server/tcp_server/src/util/log.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_epoll.dir/build.make CMakeFiles/test_epoll.dir/home/zt/server/tcp_server/src/util/log.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/util/log.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/util/log.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/log.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/log.cpp.s
 .PHONY : home/zt/server/tcp_server/src/util/log.cpp.s
 
 home/zt/server/tcp_server/src/util/memory_pool.o: home/zt/server/tcp_server/src/util/memory_pool.cpp.o
@@ -268,6 +450,10 @@ home/zt/server/tcp_server/src/util/memory_pool.o: home/zt/server/tcp_server/src/
 # target to build an object file
 home/zt/server/tcp_server/src/util/memory_pool.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.o
 .PHONY : home/zt/server/tcp_server/src/util/memory_pool.cpp.o
 
 home/zt/server/tcp_server/src/util/memory_pool.i: home/zt/server/tcp_server/src/util/memory_pool.cpp.i
@@ -276,6 +462,10 @@ home/zt/server/tcp_server/src/util/memory_pool.i: home/zt/server/tcp_server/src/
 # target to preprocess a source file
 home/zt/server/tcp_server/src/util/memory_pool.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.i
 .PHONY : home/zt/server/tcp_server/src/util/memory_pool.cpp.i
 
 home/zt/server/tcp_server/src/util/memory_pool.s: home/zt/server/tcp_server/src/util/memory_pool.cpp.s
@@ -284,6 +474,10 @@ home/zt/server/tcp_server/src/util/memory_pool.s: home/zt/server/tcp_server/src/
 # target to generate assembly for a file
 home/zt/server/tcp_server/src/util/memory_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.s
 .PHONY : home/zt/server/tcp_server/src/util/memory_pool.cpp.s
 
 home/zt/server/tcp_server/src/util/thread_pool.o: home/zt/server/tcp_server/src/util/thread_pool.cpp.o
@@ -292,6 +486,8 @@ home/zt/server/tcp_server/src/util/thread_pool.o: home/zt/server/tcp_server/src/
 # target to build an object file
 home/zt/server/tcp_server/src/util/thread_pool.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread_pool.dir/build.make CMakeFiles/test_thread_pool.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.o
 .PHONY : home/zt/server/tcp_server/src/util/thread_pool.cpp.o
 
 home/zt/server/tcp_server/src/util/thread_pool.i: home/zt/server/tcp_server/src/util/thread_pool.cpp.i
@@ -300,6 +496,8 @@ home/zt/server/tcp_server/src/util/thread_pool.i: home/zt/server/tcp_server/src/
 # target to preprocess a source file
 home/zt/server/tcp_server/src/util/thread_pool.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread_pool.dir/build.make CMakeFiles/test_thread_pool.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.i
 .PHONY : home/zt/server/tcp_server/src/util/thread_pool.cpp.i
 
 home/zt/server/tcp_server/src/util/thread_pool.s: home/zt/server/tcp_server/src/util/thread_pool.cpp.s
@@ -308,7 +506,81 @@ home/zt/server/tcp_server/src/util/thread_pool.s: home/zt/server/tcp_server/src/
 # target to generate assembly for a file
 home/zt/server/tcp_server/src/util/thread_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread_pool.dir/build.make CMakeFiles/test_thread_pool.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/home/zt/server/tcp_server/src/util/thread_pool.cpp.s
 .PHONY : home/zt/server/tcp_server/src/util/thread_pool.cpp.s
+
+test_connection.o: test_connection.cpp.o
+.PHONY : test_connection.o
+
+# target to build an object file
+test_connection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/test_connection.cpp.o
+.PHONY : test_connection.cpp.o
+
+test_connection.i: test_connection.cpp.i
+.PHONY : test_connection.i
+
+# target to preprocess a source file
+test_connection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/test_connection.cpp.i
+.PHONY : test_connection.cpp.i
+
+test_connection.s: test_connection.cpp.s
+.PHONY : test_connection.s
+
+# target to generate assembly for a file
+test_connection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection.dir/build.make CMakeFiles/test_connection.dir/test_connection.cpp.s
+.PHONY : test_connection.cpp.s
+
+test_connection_pool.o: test_connection_pool.cpp.o
+.PHONY : test_connection_pool.o
+
+# target to build an object file
+test_connection_pool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/test_connection_pool.cpp.o
+.PHONY : test_connection_pool.cpp.o
+
+test_connection_pool.i: test_connection_pool.cpp.i
+.PHONY : test_connection_pool.i
+
+# target to preprocess a source file
+test_connection_pool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/test_connection_pool.cpp.i
+.PHONY : test_connection_pool.cpp.i
+
+test_connection_pool.s: test_connection_pool.cpp.s
+.PHONY : test_connection_pool.s
+
+# target to generate assembly for a file
+test_connection_pool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_connection_pool.dir/build.make CMakeFiles/test_connection_pool.dir/test_connection_pool.cpp.s
+.PHONY : test_connection_pool.cpp.s
+
+test_echo_service.o: test_echo_service.cpp.o
+.PHONY : test_echo_service.o
+
+# target to build an object file
+test_echo_service.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/test_echo_service.cpp.o
+.PHONY : test_echo_service.cpp.o
+
+test_echo_service.i: test_echo_service.cpp.i
+.PHONY : test_echo_service.i
+
+# target to preprocess a source file
+test_echo_service.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/test_echo_service.cpp.i
+.PHONY : test_echo_service.cpp.i
+
+test_echo_service.s: test_echo_service.cpp.s
+.PHONY : test_echo_service.s
+
+# target to generate assembly for a file
+test_echo_service.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_echo_service.dir/build.make CMakeFiles/test_echo_service.dir/test_echo_service.cpp.s
+.PHONY : test_echo_service.cpp.s
 
 test_epoll.o: test_epoll.cpp.o
 .PHONY : test_epoll.o
@@ -382,6 +654,30 @@ test_memory_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_memory_pool.dir/build.make CMakeFiles/test_memory_pool.dir/test_memory_pool.cpp.s
 .PHONY : test_memory_pool.cpp.s
 
+test_server.o: test_server.cpp.o
+.PHONY : test_server.o
+
+# target to build an object file
+test_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/test_server.cpp.o
+.PHONY : test_server.cpp.o
+
+test_server.i: test_server.cpp.i
+.PHONY : test_server.i
+
+# target to preprocess a source file
+test_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/test_server.cpp.i
+.PHONY : test_server.cpp.i
+
+test_server.s: test_server.cpp.s
+.PHONY : test_server.s
+
+# target to generate assembly for a file
+test_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_server.dir/build.make CMakeFiles/test_server.dir/test_server.cpp.s
+.PHONY : test_server.cpp.s
+
 test_socket.o: test_socket.cpp.o
 .PHONY : test_socket.o
 
@@ -438,17 +734,34 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... benchmark"
+	@echo "... test_connection"
+	@echo "... test_connection_pool"
+	@echo "... test_echo_service"
 	@echo "... test_epoll"
 	@echo "... test_log"
 	@echo "... test_memory_pool"
+	@echo "... test_server"
 	@echo "... test_socket"
 	@echo "... test_thread_pool"
+	@echo "... benchmark.o"
+	@echo "... benchmark.i"
+	@echo "... benchmark.s"
+	@echo "... home/zt/server/tcp_server/src/conn/connection.o"
+	@echo "... home/zt/server/tcp_server/src/conn/connection.i"
+	@echo "... home/zt/server/tcp_server/src/conn/connection.s"
+	@echo "... home/zt/server/tcp_server/src/conn/connection_pool.o"
+	@echo "... home/zt/server/tcp_server/src/conn/connection_pool.i"
+	@echo "... home/zt/server/tcp_server/src/conn/connection_pool.s"
 	@echo "... home/zt/server/tcp_server/src/net/epoll.o"
 	@echo "... home/zt/server/tcp_server/src/net/epoll.i"
 	@echo "... home/zt/server/tcp_server/src/net/epoll.s"
 	@echo "... home/zt/server/tcp_server/src/net/socket.o"
 	@echo "... home/zt/server/tcp_server/src/net/socket.i"
 	@echo "... home/zt/server/tcp_server/src/net/socket.s"
+	@echo "... home/zt/server/tcp_server/src/service/echo_service.o"
+	@echo "... home/zt/server/tcp_server/src/service/echo_service.i"
+	@echo "... home/zt/server/tcp_server/src/service/echo_service.s"
 	@echo "... home/zt/server/tcp_server/src/util/log.o"
 	@echo "... home/zt/server/tcp_server/src/util/log.i"
 	@echo "... home/zt/server/tcp_server/src/util/log.s"
@@ -458,6 +771,15 @@ help:
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.o"
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.i"
 	@echo "... home/zt/server/tcp_server/src/util/thread_pool.s"
+	@echo "... test_connection.o"
+	@echo "... test_connection.i"
+	@echo "... test_connection.s"
+	@echo "... test_connection_pool.o"
+	@echo "... test_connection_pool.i"
+	@echo "... test_connection_pool.s"
+	@echo "... test_echo_service.o"
+	@echo "... test_echo_service.i"
+	@echo "... test_echo_service.s"
 	@echo "... test_epoll.o"
 	@echo "... test_epoll.i"
 	@echo "... test_epoll.s"
@@ -467,6 +789,9 @@ help:
 	@echo "... test_memory_pool.o"
 	@echo "... test_memory_pool.i"
 	@echo "... test_memory_pool.s"
+	@echo "... test_server.o"
+	@echo "... test_server.i"
+	@echo "... test_server.s"
 	@echo "... test_socket.o"
 	@echo "... test_socket.i"
 	@echo "... test_socket.s"
