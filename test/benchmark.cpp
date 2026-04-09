@@ -58,6 +58,8 @@ void PrintStats(const BenchmarkStats& stats) {
 void ClientThread(int thread_id, const std::string& server_ip, int server_port,
                   int num_connections, int messages_per_conn,
                   BenchmarkStats& stats) {
+  // 设置为非阻塞
+  int flags = fcntl(STDIN_FILENO, F_GETFL, 0);
   for (int conn_idx = 0; conn_idx < num_connections; ++conn_idx) {
     int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (sock_fd < 0) {
@@ -65,50 +67,54 @@ void ClientThread(int thread_id, const std::string& server_ip, int server_port,
       stats.total_connections++;
       continue;
     }
-    
+
+    // 非阻塞模式
+    fcntl(sock_fd, F_SETFL, O_NONBLOCK);
+
     struct sockaddr_in server_addr;
     memset(&server_addr, 0, sizeof(server_addr));
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(server_port);
-    
+
     if (inet_pton(AF_INET, server_ip.c_str(), &server_addr.sin_addr) <= 0) {
       close(sock_fd);
       stats.failed_connections++;
       stats.total_connections++;
       continue;
     }
-    
-    if (connect(sock_fd, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
+
+    // 连接
+    if (connect(sock_fd, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0 && errno != EINPROGRESS) {
       close(sock_fd);
       stats.failed_connections++;
       stats.total_connections++;
       continue;
     }
-    
+
     stats.successful_connections++;
     stats.total_connections++;
-    
+
+    // 恢复阻塞
+    fcntl(sock_fd, F_SETFL, flags);
+
     for (int msg_idx = 0; msg_idx < messages_per_conn; ++msg_idx) {
-      std::string message = "Thread " + std::to_string(thread_id) + 
-                          " Conn " + std::to_string(conn_idx) + 
-                          " Msg " + std::to_string(msg_idx) + "\n";
-      
-      ssize_t sent = send(sock_fd, message.c_str(), message.size(), 0);
+      std::string message = "benchmark_data\n";
+      ssize_t sent = send(sock_fd, message.c_str(), message.size(), MSG_NOSIGNAL);
       if (sent > 0) {
         stats.messages_sent++;
         stats.total_bytes_sent += sent;
       }
-      
+
       char buffer[4096];
       ssize_t received = recv(sock_fd, buffer, sizeof(buffer) - 1, 0);
       if (received > 0) {
         stats.messages_received++;
         stats.total_bytes_received += received;
       }
-      
-      std::this_thread::sleep_for(std::chrono::microseconds(10));
+
+      // std::this_thread::sleep_for(std::chrono::microseconds(10));
     }
-    
+
     close(sock_fd);
   }
 }

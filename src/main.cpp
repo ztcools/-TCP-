@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/net/server.h"
+#include "../include/util/log.h"
 
 void PrintUsage(const char* program) {
   std::cout << "Usage: " << program << " [options]" << std::endl;
@@ -13,11 +14,16 @@ void PrintUsage(const char* program) {
   std::cout << "  -t, --timeout <ms>      Heartbeat timeout (default: 60000)" << std::endl;
   std::cout << "  -w, --workers <num>     Worker threads (default: auto)" << std::endl;
   std::cout << "  -v, --verbose           Enable verbose logging" << std::endl;
+  std::cout << "  -l, --log               Enable runtime log output (default: disabled)" << std::endl;
+  std::cout << "  --no-log                Disable runtime log output" << std::endl;
   std::cout << std::endl;
 }
 
 int main(int argc, char* argv[]) {
   net::Server::Config config;
+  
+  // 默认关闭日志
+  util::g_is_log_enable = false;
 
   for (int i = 1; i < argc; ++i) {
     std::string arg = argv[i];
@@ -51,6 +57,10 @@ int main(int argc, char* argv[]) {
       }
     } else if (arg == "-v" || arg == "--verbose") {
       config.log_level = util::LogLevel::DEBUG;
+    } else if (arg == "-l" || arg == "--log") {
+      util::g_is_log_enable = true;
+    } else if (arg == "--no-log") {
+      util::g_is_log_enable = false;
     }
   }
 
