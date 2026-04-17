@@ -1,6 +1,7 @@
 #include "net/server.h"
 #include <cstring>
 #include <errno.h>
+#include <algorithm>
 
 namespace net {
 
@@ -53,18 +54,14 @@ void Server::Init(const Config& config) {
 
   memory_pool_ = std::make_shared<util::MemoryPool>(
       config_.memory_pool_block_size, config_.memory_pool_block_count);
-  LOG_INFO("Memory pool initialized: block_size=" + 
-           std::to_string(config_.memory_pool_block_size) + 
+  LOG_INFO("Memory pool initialized: block_size=" +
+           std::to_string(config_.memory_pool_block_size) +
            ", block_count=" + std::to_string(config_.memory_pool_block_count));
 
   auto& conn_pool = conn::ConnectionPool::GetInstance();
   conn_pool.Init(config_.max_connections, config_.heartbeat_timeout_ms);
   conn_pool.StartHeartbeatCheck();
   LOG_INFO("Connection pool initialized");
-
-  auto& echo_service = service::EchoService::GetInstance();
-  echo_service.Init(config_.thread_pool_size);
-  LOG_INFO("Echo service initialized");
 
   signal(SIGINT, SignalHandler);
   signal(SIGTERM, SignalHandler);
@@ -97,10 +94,6 @@ void Server::Stop() {
   if (event_loop_thread_.joinable()) {
     event_loop_thread_.join();
   }
-
-  auto& echo_service = service::EchoService::GetInstance();
-  echo_service.Shutdown();
-  LOG_INFO("Echo service shutdown");
 
   auto& conn_pool = conn::ConnectionPool::GetInstance();
   conn_pool.StopHeartbeatCheck();
@@ -182,7 +175,7 @@ void Server::HandleAccept() {
     uint16_t client_port = client_socket.GetPeerPort();
     int client_fd = client_socket.GetFd();
 
-    LOG_INFO("New connection accepted: " + client_ip + ":" + std::to_string(client_port) + 
+    LOG_INFO("New connection accepted: " + client_ip + ":" + std::to_string(client_port) +
              ", fd=" + std::to_string(client_fd));
 
     client_socket.SetNonBlocking();
@@ -226,7 +219,7 @@ void Server::HandleRead(int fd) {
   }
 
   if (recv_len == 0) {
-    LOG_INFO("Connection closed by peer: " + conn->GetIp() + ":" + 
+    LOG_INFO("Connection closed by peer: " + conn->GetIp() + ":" +
              std::to_string(conn->GetPort()));
     HandleError(fd);
     return;
@@ -234,8 +227,23 @@ void Server::HandleRead(int fd) {
 
   conn->UpdateHeartbeat();
 
-  auto& echo_service = service::EchoService::GetInstance();
-  echo_service.HandleConnection(conn);
+  size_t data_len = conn->GetReadBufferSize();
+  if (data_len == 0) {
+    return;
+  }
+
+  const char* data = conn->GetReadBuffer();
+  conn->AppendWriteBuffer(data, data_len);
+  conn->ConsumeReadBuffer(data_len);
+
+  ssize_t send_len = conn->Send();
+  if (send_len < 0) {
+    if (errno != EAGAIN && errno != EWOULDBLOCK) {
+      LOG_ERROR("Send error: " + std::string(strerror(errno)));
+      HandleError(fd);
+      return;
+    }
+  }
 
   epoll_->ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
 }
@@ -267,7 +275,7 @@ void Server::HandleError(int fd) {
   auto conn = conn_pool.GetConnection(fd);
 
   if (conn) {
-    LOG_INFO("Closing connection: " + conn->GetIp() + ":" + 
+    LOG_INFO("Closing connection: " + conn->GetIp() + ":" +
              std::to_string(conn->GetPort()) + ", fd=" + std::to_string(fd));
   }
 

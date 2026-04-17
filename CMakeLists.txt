@@ -24,7 +24,6 @@ file(GLOB_RECURSE SERVER_SOURCES
     ${PROJECT_SOURCE_DIR}/src/util/*.cpp
     ${PROJECT_SOURCE_DIR}/src/net/*.cpp
     ${PROJECT_SOURCE_DIR}/src/conn/*.cpp
-    ${PROJECT_SOURCE_DIR}/src/service/*.cpp
 )
 
 list(FILTER SERVER_SOURCES EXCLUDE REGEX ".*test.*")

@@ -6,19 +6,17 @@
 #include <atomic>
 #include <signal.h>
 #include "util/log.h"
-#include "util/thread_pool.h"
 #include "util/memory_pool.h"
 #include "net/socket.h"
 #include "net/epoll.h"
 #include "conn/connection.h"
 #include "conn/connection_pool.h"
-#include "service/echo_service.h"
 
 namespace net {
 
 /**
  * @brief 主服务器类，整合所有模块，提供事件循环和连接管理
- * 
+ *
  * 该类是整个服务器的核心，负责初始化各个模块、启动事件循环、
  * 处理连接请求和管理连接生命周期。采用单例模式实现。
  */
@@ -33,7 +31,6 @@ class Server {
     int backlog = 128;                        // 监听队列大小
     size_t max_connections = 100000;          // 最大连接数
     int64_t heartbeat_timeout_ms = 60000;     // 心跳超时时间（毫秒）
-    size_t thread_pool_size = 0;              // 线程池大小，0 表示自动
     size_t memory_pool_block_size = 4096;     // 内存池块大小
     size_t memory_pool_block_count = 10000;   // 内存池块数量
     util::LogLevel log_level = util::LogLevel::INFO;  // 日志级别
@@ -54,17 +51,17 @@ class Server {
    * @param config 服务器配置
    */
   void Init(const Config& config);
-  
+
   /**
    * @brief 启动服务器
    */
   void Start();
-  
+
   /**
    * @brief 停止服务器
    */
   void Stop();
-  
+
   /**
    * @brief 等待服务器停止
    */
@@ -81,7 +78,7 @@ class Server {
    * @brief 构造函数
    */
   Server() = default;
-  
+
   /**
    * @brief 析构函数
    */
@@ -97,24 +94,24 @@ class Server {
    * @brief 事件循环
    */
   void EventLoop();
-  
+
   /**
    * @brief 处理新连接
    */
   void HandleAccept();
-  
+
   /**
    * @brief 处理读事件
    * @param fd 文件描述符
    */
   void HandleRead(int fd);
-  
+
   /**
    * @brief 处理写事件
    * @param fd 文件描述符
    */
   void HandleWrite(int fd);
-  
+
   /**
    * @brief 处理错误事件
    * @param fd 文件描述符

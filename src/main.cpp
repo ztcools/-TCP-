@@ -12,7 +12,6 @@ void PrintUsage(const char* program) {
   std::cout << "  -b, --backlog <num>     Listen backlog (default: 128)" << std::endl;
   std::cout << "  -c, --max-conn <num>    Max connections (default: 100000)" << std::endl;
   std::cout << "  -t, --timeout <ms>      Heartbeat timeout (default: 60000)" << std::endl;
-  std::cout << "  -w, --workers <num>     Worker threads (default: auto)" << std::endl;
   std::cout << "  -v, --verbose           Enable verbose logging" << std::endl;
   std::cout << std::endl;
 }
@@ -45,10 +44,6 @@ int main(int argc, char* argv[]) {
     } else if (arg == "-t" || arg == "--timeout") {
       if (i + 1 < argc) {
         config.heartbeat_timeout_ms = std::stoll(argv[++i]);
-      }
-    } else if (arg == "-w" || arg == "--workers") {
-      if (i + 1 < argc) {
-        config.thread_pool_size = std::stoull(argv[++i]);
       }
     } else if (arg == "-v" || arg == "--verbose") {
       config.log_level = util::LogLevel::DEBUG;
