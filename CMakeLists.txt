@@ -18,6 +18,9 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
+# Generate compile_commands.json for IDE support
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 file(GLOB_RECURSE SERVER_SOURCES
