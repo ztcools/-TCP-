@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <thread>
+#include <functional>
 #include "net/event_loop.h"
 
 namespace net {
@@ -55,6 +56,14 @@ public:
   }
 
   /**
+   * @brief 设置主Reactor的回调函数
+   * @param main_reactor_func 主Reactor的回调函数
+   */
+  void SetMainReactorFunc(std::function<void()> main_reactor_func) {
+    main_reactor_func_ = main_reactor_func;
+  }
+
+  /**
    * @brief 获取线程池大小
    * @return 线程池大小
    */
@@ -66,6 +75,7 @@ private:
   std::vector<std::unique_ptr<EventLoop>> loops_;      // EventLoop列表
   std::vector<std::unique_ptr<std::thread>> threads_;  // 线程列表
   size_t next_loop_idx_;                               // 下一个要使用的EventLoop索引
+  std::function<void()> main_reactor_func_;            // 主Reactor的回调函数
 };
 
 }  // namespace net

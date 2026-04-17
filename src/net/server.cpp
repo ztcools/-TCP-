@@ -49,6 +49,12 @@ void Server::Init(const Config& config) {
 
   LOG_INFO("Server listening on " + config_.ip + ":" + std::to_string(config_.port));
 
+  // 创建主Reactor的EventLoop（在主线程中运行）
+  main_loop_ = std::make_unique<EventLoop>();
+  main_loop_->SetMainReactor(true);
+  main_loop_->AddFd(listen_socket_->GetFd(), EPOLLIN | EPOLLET);
+  LOG_INFO("Main EventLoop initialized in main thread");
+
   // 创建内存池
   memory_pool_ = std::make_shared<util::MemoryPool>(
       config_.memory_pool_block_size, config_.memory_pool_block_count);
@@ -56,25 +62,14 @@ void Server::Init(const Config& config) {
            std::to_string(config_.memory_pool_block_size) +
            ", block_count=" + std::to_string(config_.memory_pool_block_count));
 
-  // 计算IO线程数：CPU核心数（包括主Reactor线程）
+  // 计算IO线程数：CPU核心数 - 1（不包括主Reactor线程）
   size_t cpu_count = std::thread::hardware_concurrency();
-  size_t io_thread_num = (cpu_count > 0) ? cpu_count : 1;
+  size_t io_thread_num = (cpu_count > 1) ? (cpu_count - 1) : 1;
   LOG_INFO("CPU cores: " + std::to_string(cpu_count) + ", IO threads: " + std::to_string(io_thread_num));
 
   // 创建IO线程池
   io_thread_pool_ = std::make_unique<IOThreadPool>(io_thread_num);
   LOG_INFO("IO thread pool initialized");
-  
-  // 从IO线程池中获取第一个EventLoop作为主Reactor
-  main_loop_ = io_thread_pool_->GetEventLoop(0);
-  if (!main_loop_) {
-    LOG_ERROR("Failed to get main EventLoop from IO thread pool");
-    return;
-  }
-  // 标记为主Reactor
-  main_loop_->SetMainReactor(true);
-  main_loop_->AddFd(listen_socket_->GetFd(), EPOLLIN | EPOLLET);
-  LOG_INFO("Main EventLoop initialized from IO thread pool");
 
   // 初始化连接池
   auto& conn_pool = conn::ConnectionPool::GetInstance();
@@ -99,13 +94,15 @@ void Server::Start() {
   running_ = true;
   LOG_INFO("Server starting...");
 
-  // 启动IO线程池（包括主Reactor线程）
+  // 启动IO线程池（从Reactor）
   io_thread_pool_->Start();
   LOG_INFO("IO thread pool started");
-  LOG_INFO("Main EventLoop will run in IO thread pool");
 
-  // 注意：主Reactor的事件循环现在在IO线程池中运行
-  // 不再需要单独创建main_thread_
+  // 主Reactor在主线程中运行
+  LOG_INFO("Main EventLoop will run in main thread");
+
+  // 运行主Reactor的事件循环
+  MainEventLoop();
 
   LOG_INFO("Server started");
 }
@@ -150,9 +147,31 @@ void Server::SignalHandler(int signal) {
 
 void Server::MainEventLoop() {
   LOG_INFO("Main EventLoop started");
+  
+  // 检查main_loop_是否有效
+  if (!main_loop_) {
+    LOG_ERROR("Main EventLoop: main_loop_ is null");
+    return;
+  }
+  
+  // 检查listen_socket_是否有效
+  if (!listen_socket_) {
+    LOG_ERROR("Main EventLoop: listen_socket_ is null");
+    return;
+  }
+  
+  // 检查epoll是否有效
+  auto epoll = main_loop_->GetEpoll();
+  if (!epoll) {
+    LOG_ERROR("Main EventLoop: epoll is null");
+    return;
+  }
+  
+  LOG_INFO("Main EventLoop: all pointers are valid");
+  LOG_INFO("Main EventLoop: listen_fd=" + std::to_string(listen_socket_->GetFd()));
 
   while (running_ && !stop_requested_) {
-    int num_events = main_loop_->GetEpoll()->Wait(100);
+    int num_events = epoll->Wait(100);
     if (num_events < 0) {
       if (errno == EINTR) {
         continue;
@@ -161,12 +180,17 @@ void Server::MainEventLoop() {
       break;
     }
 
+    LOG_DEBUG("Main EventLoop: num_events=" + std::to_string(num_events));
+
     for (int i = 0; i < num_events; ++i) {
-      const struct epoll_event& event = main_loop_->GetEpoll()->GetEvents()[i];
+      const struct epoll_event& event = epoll->GetEvents()[i];
       int fd = event.data.fd;
+
+      LOG_DEBUG("Main EventLoop: handling event for fd=" + std::to_string(fd));
 
       if (fd == listen_socket_->GetFd()) {
         if (event.events & EPOLLIN) {
+          LOG_DEBUG("Main EventLoop: accept event");
           HandleAccept();
         }
       }

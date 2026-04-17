@@ -18,11 +18,9 @@ EventLoop::~EventLoop() {
 }
 
 void EventLoop::Loop() {
-  if (!IsInLoopThread()) {
-    LOG_ERROR("EventLoop::Loop() called from wrong thread");
-    return;
-  }
-
+  // 更新thread_id_为当前线程ID
+  thread_id_ = std::this_thread::get_id();
+  
   running_ = true;
   LOG_INFO("EventLoop started in thread: " + std::to_string(std::hash<std::thread::id>{}(thread_id_)));
 

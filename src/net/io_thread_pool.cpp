@@ -27,12 +27,17 @@ IOThreadPool::~IOThreadPool() {
 void IOThreadPool::Start() {
   for (size_t i = 0; i < loops_.size(); ++i) {
     auto& loop = loops_[i];
-    threads_.emplace_back(std::make_unique<std::thread>([loop = loop.get()]() {
-      loop->Loop();
-    }));
-    if (i == 0) {
+    if (i == 0 && main_reactor_func_) {
+      // 为主Reactor线程调用主Reactor回调函数
+      threads_.emplace_back(std::make_unique<std::thread>([this]() {
+        this->main_reactor_func_();
+      }));
       LOG_INFO("Main reactor thread started");
     } else {
+      // 为从Reactor线程调用Loop()方法
+      threads_.emplace_back(std::make_unique<std::thread>([loop = loop.get()]() {
+        loop->Loop();
+      }));
       LOG_INFO("IO thread " + std::to_string(i) + " started");
     }
   }

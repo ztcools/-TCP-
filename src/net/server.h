@@ -107,7 +107,7 @@ class Server {
 
   Config config_;                          // 服务器配置
   std::unique_ptr<Socket> listen_socket_;  // 监听 socket
-  EventLoop* main_loop_;                   // 主Reactor的EventLoop（从IO线程池获取）
+  std::unique_ptr<EventLoop> main_loop_;   // 主Reactor的EventLoop（在主线程中运行）
   std::unique_ptr<IOThreadPool> io_thread_pool_;  // IO线程池（从Reactor）
   std::shared_ptr<util::MemoryPool> memory_pool_;  // 内存池
   std::atomic<bool> running_;              // 运行状态
