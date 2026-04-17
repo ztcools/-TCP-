@@ -1,4 +1,4 @@
-#include "../../include/net/server.h"
+#include "net/server.h"
 #include <cstring>
 #include <errno.h>
 

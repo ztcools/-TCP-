@@ -1,5 +1,5 @@
-#include "../../include/conn/connection_pool.h"
-#include "../../include/util/log.h"
+#include "conn/connection_pool.h"
+#include "util/log.h"
 
 namespace conn {
 

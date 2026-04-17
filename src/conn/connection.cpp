@@ -1,5 +1,5 @@
-#include "../../include/conn/connection.h"
-#include "../../include/util/log.h"
+#include "conn/connection.h"
+#include "util/log.h"
 
 #include <unistd.h>
 #include <sys/socket.h>

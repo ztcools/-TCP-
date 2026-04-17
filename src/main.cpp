@@ -1,5 +1,6 @@
 #include <iostream>
-#include "../include/net/server.h"
+#include "net/server.h"
+#include "util/log.h"
 
 void PrintUsage(const char* program) {
   std::cout << "Usage: " << program << " [options]" << std::endl;

@@ -1,5 +1,5 @@
-#include "../../include/net/epoll.h"
-#include "../../include/util/log.h"
+#include "net/epoll.h"
+#include "util/log.h"
 
 #include <unistd.h>
 #include <string.h>

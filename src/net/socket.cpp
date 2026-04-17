@@ -1,5 +1,5 @@
-#include "../../include/net/socket.h"
-#include "../../include/util/log.h"
+#include "net/socket.h"
+#include "util/log.h"
 
 #include <sys/socket.h>
 #include <sys/types.h>

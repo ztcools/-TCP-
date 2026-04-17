@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/test_memory_pool.dir/test_memory_pool.cpp.o CMakeFiles/test_memory_pool.dir/home/zt/server/tcp_server/src/util/memory_pool.cpp.o -o test_memory_pool  -lpthread 

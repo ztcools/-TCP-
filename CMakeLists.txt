@@ -18,7 +18,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/src)
 
 file(GLOB_RECURSE SERVER_SOURCES
     ${PROJECT_SOURCE_DIR}/src/util/*.cpp
@@ -58,4 +58,7 @@ message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Source Files: ${SERVER_SOURCES}")
 message(STATUS "==================================================")
 
-add_subdirectory(test)
+# Only add test directory if it exists
+if(EXISTS ${PROJECT_SOURCE_DIR}/test AND IS_DIRECTORY ${PROJECT_SOURCE_DIR}/test)
+    add_subdirectory(test)
+endif()
