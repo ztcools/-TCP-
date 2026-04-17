@@ -171,7 +171,7 @@ void Server::MainEventLoop() {
   LOG_INFO("Main EventLoop: listen_fd=" + std::to_string(listen_socket_->GetFd()));
 
   while (running_ && !stop_requested_) {
-    int num_events = epoll->Wait(100);
+    int num_events = epoll->Wait(-1);
     if (num_events < 0) {
       if (errno == EINTR) {
         continue;

@@ -25,7 +25,7 @@ void EventLoop::Loop() {
   LOG_INFO("EventLoop started in thread: " + std::to_string(std::hash<std::thread::id>{}(thread_id_)));
 
   while (running_) {
-    int num_events = epoll_->Wait(100);
+    int num_events = epoll_->Wait(-1);
     if (num_events < 0) {
       if (errno == EINTR) {
         continue;
