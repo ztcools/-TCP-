@@ -2,6 +2,7 @@
 #include <cstring>
 #include <errno.h>
 #include <algorithm>
+#include <thread>
 
 namespace net {
 
@@ -48,21 +49,40 @@ void Server::Init(const Config& config) {
 
   LOG_INFO("Server listening on " + config_.ip + ":" + std::to_string(config_.port));
 
-  epoll_ = std::make_unique<Epoll>();
-  epoll_->AddFd(listen_socket_->GetFd(), EPOLLIN | EPOLLET);
-  LOG_INFO("Epoll initialized");
-
+  // 创建内存池
   memory_pool_ = std::make_shared<util::MemoryPool>(
       config_.memory_pool_block_size, config_.memory_pool_block_count);
   LOG_INFO("Memory pool initialized: block_size=" +
            std::to_string(config_.memory_pool_block_size) +
            ", block_count=" + std::to_string(config_.memory_pool_block_count));
 
+  // 计算IO线程数：CPU核心数（包括主Reactor线程）
+  size_t cpu_count = std::thread::hardware_concurrency();
+  size_t io_thread_num = (cpu_count > 0) ? cpu_count : 1;
+  LOG_INFO("CPU cores: " + std::to_string(cpu_count) + ", IO threads: " + std::to_string(io_thread_num));
+
+  // 创建IO线程池
+  io_thread_pool_ = std::make_unique<IOThreadPool>(io_thread_num);
+  LOG_INFO("IO thread pool initialized");
+  
+  // 从IO线程池中获取第一个EventLoop作为主Reactor
+  main_loop_ = io_thread_pool_->GetEventLoop(0);
+  if (!main_loop_) {
+    LOG_ERROR("Failed to get main EventLoop from IO thread pool");
+    return;
+  }
+  // 标记为主Reactor
+  main_loop_->SetMainReactor(true);
+  main_loop_->AddFd(listen_socket_->GetFd(), EPOLLIN | EPOLLET);
+  LOG_INFO("Main EventLoop initialized from IO thread pool");
+
+  // 初始化连接池
   auto& conn_pool = conn::ConnectionPool::GetInstance();
   conn_pool.Init(config_.max_connections, config_.heartbeat_timeout_ms);
   conn_pool.StartHeartbeatCheck();
   LOG_INFO("Connection pool initialized");
 
+  // 注册信号处理
   signal(SIGINT, SignalHandler);
   signal(SIGTERM, SignalHandler);
   LOG_INFO("Signal handlers registered");
@@ -79,7 +99,14 @@ void Server::Start() {
   running_ = true;
   LOG_INFO("Server starting...");
 
-  event_loop_thread_ = std::thread(&Server::EventLoop, this);
+  // 启动IO线程池（包括主Reactor线程）
+  io_thread_pool_->Start();
+  LOG_INFO("IO thread pool started");
+  LOG_INFO("Main EventLoop will run in IO thread pool");
+
+  // 注意：主Reactor的事件循环现在在IO线程池中运行
+  // 不再需要单独创建main_thread_
+
   LOG_INFO("Server started");
 }
 
@@ -91,19 +118,18 @@ void Server::Stop() {
   LOG_INFO("Server stopping...");
   running_ = false;
 
-  if (event_loop_thread_.joinable()) {
-    event_loop_thread_.join();
+  // 停止IO线程池（包括主Reactor线程）
+  if (io_thread_pool_) {
+    io_thread_pool_->Stop();
   }
 
+  // 关闭连接池
   auto& conn_pool = conn::ConnectionPool::GetInstance();
   conn_pool.StopHeartbeatCheck();
   conn_pool.Shutdown();
   LOG_INFO("Connection pool shutdown");
 
-  if (epoll_) {
-    epoll_.reset();
-  }
-
+  // 关闭监听socket
   if (listen_socket_) {
     listen_socket_->Close();
     listen_socket_.reset();
@@ -113,9 +139,8 @@ void Server::Stop() {
 }
 
 void Server::Wait() {
-  if (event_loop_thread_.joinable()) {
-    event_loop_thread_.join();
-  }
+  // 由于主Reactor现在在IO线程池中运行，不需要单独等待
+  // IO线程池的Stop()方法会等待所有线程结束
 }
 
 void Server::SignalHandler(int signal) {
@@ -123,11 +148,11 @@ void Server::SignalHandler(int signal) {
   stop_requested_ = true;
 }
 
-void Server::EventLoop() {
-  LOG_INFO("Event loop started");
+void Server::MainEventLoop() {
+  LOG_INFO("Main EventLoop started");
 
   while (running_ && !stop_requested_) {
-    int num_events = epoll_->Wait(100);
+    int num_events = main_loop_->GetEpoll()->Wait(100);
     if (num_events < 0) {
       if (errno == EINTR) {
         continue;
@@ -137,26 +162,18 @@ void Server::EventLoop() {
     }
 
     for (int i = 0; i < num_events; ++i) {
-      const struct epoll_event& event = epoll_->GetEvents()[i];
+      const struct epoll_event& event = main_loop_->GetEpoll()->GetEvents()[i];
       int fd = event.data.fd;
 
       if (fd == listen_socket_->GetFd()) {
         if (event.events & EPOLLIN) {
           HandleAccept();
         }
-      } else {
-        if (event.events & EPOLLERR || event.events & EPOLLHUP) {
-          HandleError(fd);
-        } else if (event.events & EPOLLIN) {
-          HandleRead(fd);
-        } else if (event.events & EPOLLOUT) {
-          HandleWrite(fd);
-        }
       }
     }
   }
 
-  LOG_INFO("Event loop stopped");
+  LOG_INFO("Main EventLoop stopped");
   Stop();
 }
 
@@ -193,94 +210,21 @@ void Server::HandleAccept() {
       continue;
     }
 
+    // 轮询获取一个从Reactor
+    EventLoop* sub_loop = io_thread_pool_->GetNextEventLoop();
+    if (!sub_loop) {
+      LOG_ERROR("No available IO thread");
+      client_socket.Close();
+      conn_pool.RemoveConnection(client_fd);
+      continue;
+    }
+
+    // 将连接添加到从Reactor
+    sub_loop->AddFd(client_fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
+    LOG_DEBUG("Connection " + std::to_string(client_fd) + " assigned to IO thread");
+
     client_socket.Release();
-
-    epoll_->AddFd(client_fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
-    LOG_DEBUG("Connection added to epoll: fd=" + std::to_string(client_fd));
   }
-}
-
-void Server::HandleRead(int fd) {
-  auto& conn_pool = conn::ConnectionPool::GetInstance();
-  auto conn = conn_pool.GetConnection(fd);
-
-  if (!conn) {
-    LOG_WARN("Connection not found for read: fd=" + std::to_string(fd));
-    return;
-  }
-
-  ssize_t recv_len = conn->Recv();
-  if (recv_len < 0) {
-    if (errno != EAGAIN && errno != EWOULDBLOCK) {
-      LOG_ERROR("Recv error: " + std::string(strerror(errno)));
-      HandleError(fd);
-    }
-    return;
-  }
-
-  if (recv_len == 0) {
-    LOG_INFO("Connection closed by peer: " + conn->GetIp() + ":" +
-             std::to_string(conn->GetPort()));
-    HandleError(fd);
-    return;
-  }
-
-  conn->UpdateHeartbeat();
-
-  size_t data_len = conn->GetReadBufferSize();
-  if (data_len == 0) {
-    return;
-  }
-
-  const char* data = conn->GetReadBuffer();
-  conn->AppendWriteBuffer(data, data_len);
-  conn->ConsumeReadBuffer(data_len);
-
-  ssize_t send_len = conn->Send();
-  if (send_len < 0) {
-    if (errno != EAGAIN && errno != EWOULDBLOCK) {
-      LOG_ERROR("Send error: " + std::string(strerror(errno)));
-      HandleError(fd);
-      return;
-    }
-  }
-
-  epoll_->ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
-}
-
-void Server::HandleWrite(int fd) {
-  auto& conn_pool = conn::ConnectionPool::GetInstance();
-  auto conn = conn_pool.GetConnection(fd);
-
-  if (!conn) {
-    LOG_WARN("Connection not found for write: fd=" + std::to_string(fd));
-    return;
-  }
-
-  ssize_t send_len = conn->Send();
-  if (send_len < 0) {
-    if (errno != EAGAIN && errno != EWOULDBLOCK) {
-      LOG_ERROR("Send error: " + std::string(strerror(errno)));
-      HandleError(fd);
-    }
-    return;
-  }
-
-  conn->UpdateHeartbeat();
-  epoll_->ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
-}
-
-void Server::HandleError(int fd) {
-  auto& conn_pool = conn::ConnectionPool::GetInstance();
-  auto conn = conn_pool.GetConnection(fd);
-
-  if (conn) {
-    LOG_INFO("Closing connection: " + conn->GetIp() + ":" +
-             std::to_string(conn->GetPort()) + ", fd=" + std::to_string(fd));
-  }
-
-  epoll_->RemoveFd(fd);
-  conn_pool.RemoveConnection(fd);
 }
 
 }  // namespace net

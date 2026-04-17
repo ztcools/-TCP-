@@ -8,7 +8,8 @@
 #include "util/log.h"
 #include "util/memory_pool.h"
 #include "net/socket.h"
-#include "net/epoll.h"
+#include "net/event_loop.h"
+#include "net/io_thread_pool.h"
 #include "conn/connection.h"
 #include "conn/connection_pool.h"
 
@@ -19,6 +20,10 @@ namespace net {
  *
  * 该类是整个服务器的核心，负责初始化各个模块、启动事件循环、
  * 处理连接请求和管理连接生命周期。采用单例模式实现。
+ * 
+ * 架构：主从Reactor模式
+ * - 主线程（main）：主Reactor，只负责accept新连接
+ * - IO线程池：从Reactor，负责已连接客户端的读写事件和业务逻辑
  */
 class Server {
  public:
@@ -91,38 +96,20 @@ class Server {
   static void SignalHandler(int signal);
 
   /**
-   * @brief 事件循环
+   * @brief 主Reactor事件循环
    */
-  void EventLoop();
+  void MainEventLoop();
 
   /**
    * @brief 处理新连接
    */
   void HandleAccept();
 
-  /**
-   * @brief 处理读事件
-   * @param fd 文件描述符
-   */
-  void HandleRead(int fd);
-
-  /**
-   * @brief 处理写事件
-   * @param fd 文件描述符
-   */
-  void HandleWrite(int fd);
-
-  /**
-   * @brief 处理错误事件
-   * @param fd 文件描述符
-   */
-  void HandleError(int fd);
-
   Config config_;                          // 服务器配置
   std::unique_ptr<Socket> listen_socket_;  // 监听 socket
-  std::unique_ptr<Epoll> epoll_;          // epoll 实例
+  EventLoop* main_loop_;                   // 主Reactor的EventLoop（从IO线程池获取）
+  std::unique_ptr<IOThreadPool> io_thread_pool_;  // IO线程池（从Reactor）
   std::shared_ptr<util::MemoryPool> memory_pool_;  // 内存池
-  std::thread event_loop_thread_;          // 事件循环线程
   std::atomic<bool> running_;              // 运行状态
   static std::atomic<bool> stop_requested_;  // 停止请求标志
 };
