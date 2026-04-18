@@ -126,9 +126,19 @@ void EventLoop::HandleRead(int fd) {
       HandleError(fd);
       return;
     }
+    ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
+  }
+  else {
+    if(conn->HasPendingData())
+    {
+      ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
+    }
+    else 
+    {
+      ModifyFd(fd, EPOLLIN | EPOLLET | EPOLLONESHOT);
+    }
   }
 
-  ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
 }
 
 void EventLoop::HandleWrite(int fd) {
@@ -148,9 +158,16 @@ void EventLoop::HandleWrite(int fd) {
     }
     return;
   }
-
   conn->UpdateHeartbeat();
-  ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
+  int events = EPOLLIN | EPOLLET | EPOLLONESHOT; // 默认只监听读
+
+  // 只有当写缓冲区有待发送数据时，才额外加上监听写事件
+  if (conn->HasPendingData()) {
+    events |= EPOLLOUT;
+}
+
+  // 无论有没有数据要写，都要重新注册事件，以保证读事件（EPOLLIN）继续生效
+  ModifyFd(fd, events);
 }
 
 void EventLoop::HandleError(int fd) {

@@ -53,6 +53,7 @@ void Server::Init(const Config& config) {
   main_loop_ = std::make_unique<EventLoop>();
   main_loop_->SetMainReactor(true);
   main_loop_->AddFd(listen_socket_->GetFd(), EPOLLIN | EPOLLET);
+  main_loop_->Loop();
   LOG_INFO("Main EventLoop initialized in main thread");
 
   // 创建内存池

@@ -62,27 +62,22 @@ void Connection::SetState(ConnectionState state) {
 }
 
 void Connection::UpdateHeartbeat() {
-  std::lock_guard<std::mutex> lock(mutex_);
   last_heartbeat_ = std::chrono::steady_clock::now();
 }
 
 bool Connection::IsTimeout(int64_t timeout_ms) const {
-  std::lock_guard<std::mutex> lock(mutex_);
   auto now = std::chrono::steady_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(now - last_heartbeat_);
   return duration.count() > timeout_ms;
 }
 
 int64_t Connection::GetLastHeartbeatMs() const {
-  std::lock_guard<std::mutex> lock(mutex_);
   auto now = std::chrono::steady_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(now - last_heartbeat_);
   return duration.count();
 }
 
 ssize_t Connection::Recv() {
-  std::lock_guard<std::mutex> lock(mutex_);
-  
   if (state_.load(std::memory_order_relaxed) == ConnectionState::CLOSED) {
     return -1;
   }
@@ -112,17 +107,16 @@ ssize_t Connection::Recv() {
 }
 
 ssize_t Connection::Send() {
-  std::lock_guard<std::mutex> lock(mutex_);
-  
   if (state_.load(std::memory_order_relaxed) == ConnectionState::CLOSED) {
     return -1;
   }
   
-  if (write_idx_ == 0) {
+  size_t current_write_idx = write_idx_;
+  if (current_write_idx == 0) {
     return 0;
   }
   
-  ssize_t ret = send(fd_, write_buffer_.data(), write_idx_, 0);
+  ssize_t ret = send(fd_, write_buffer_.data(), current_write_idx, 0);
   
   if (ret > 0) {
     memmove(write_buffer_.data(), write_buffer_.data() + ret, write_idx_ - ret);
@@ -145,28 +139,22 @@ ssize_t Connection::Send() {
 }
 
 bool Connection::HasPendingData() const {
-  std::lock_guard<std::mutex> lock(mutex_);
   return write_idx_ > 0;
 }
 
 size_t Connection::GetReadBufferSize() const {
-  std::lock_guard<std::mutex> lock(mutex_);
   return read_idx_;
 }
 
 size_t Connection::GetWriteBufferSize() const {
-  std::lock_guard<std::mutex> lock(mutex_);
   return write_idx_;
 }
 
 const char* Connection::GetReadBuffer() const {
-  std::lock_guard<std::mutex> lock(mutex_);
   return read_buffer_.data();
 }
 
 void Connection::ConsumeReadBuffer(size_t len) {
-  std::lock_guard<std::mutex> lock(mutex_);
-  
   if (len >= read_idx_) {
     read_idx_ = 0;
   } else {
@@ -176,8 +164,6 @@ void Connection::ConsumeReadBuffer(size_t len) {
 }
 
 void Connection::AppendWriteBuffer(const char* data, size_t len) {
-  std::lock_guard<std::mutex> lock(mutex_);
-  
   if (write_buffer_.size() < write_idx_ + len) {
     size_t new_size = std::max(write_buffer_.size() * 2, write_idx_ + len);
     write_buffer_.resize(new_size);
@@ -191,8 +177,6 @@ void Connection::AppendWriteBuffer(const char* data, size_t len) {
 }
 
 void Connection::Close() {
-  std::lock_guard<std::mutex> lock(mutex_);
-  
   if (state_.load(std::memory_order_relaxed) != ConnectionState::CLOSED) {
     state_.store(ConnectionState::CLOSED, std::memory_order_relaxed);
     

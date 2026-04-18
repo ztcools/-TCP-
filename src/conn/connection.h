@@ -163,8 +163,6 @@ class Connection {
    */
   void CheckAndResizeWriteBuffer();
 
-  mutable std::mutex mutex_;  // 互斥锁，用于线程安全
-
   int fd_;                    // 文件描述符
   std::string ip_;            // 客户端 IP 地址
   uint16_t port_;             // 客户端端口号
@@ -174,8 +172,8 @@ class Connection {
 
   std::vector<char> read_buffer_;   // 读缓冲区
   std::vector<char> write_buffer_;  // 写缓冲区
-  size_t read_idx_;                 // 读缓冲区索引
-  size_t write_idx_;                // 写缓冲区索引
+  size_t read_idx_;                 // 读缓冲区索引（单线程访问）
+  std::atomic<size_t> write_idx_;   // 写缓冲区索引（atomic，无需锁）
 
   std::shared_ptr<util::MemoryPool> memory_pool_;  // 内存池
 };
