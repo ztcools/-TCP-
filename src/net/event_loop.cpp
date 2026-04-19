@@ -92,53 +92,51 @@ void EventLoop::HandleRead(int fd) {
     return;
   }
 
-  ssize_t recv_len = conn->Recv();
-  if (recv_len < 0) {
-    if (errno != EAGAIN && errno != EWOULDBLOCK) {
-      LOG_ERROR("Recv error: " + std::string(strerror(errno)));
-      HandleError(fd);
-    }
-    return;
+  // ==============================
+  // 🔥 核心修复：必须循环读空！！！
+  // ==============================
+  ssize_t ret;
+  while ((ret = conn->Recv()) > 0) {
+    // 持续读取，直到 ret <= 0
   }
 
-  if (recv_len == 0) {
-    LOG_INFO("Connection closed by peer: " + conn->GetIp() + ":" +
-             std::to_string(conn->GetPort()));
+  // 对端关闭
+  if (ret == 0) {
+    LOG_INFO("Client closed: " + conn->GetIp() + ":" + std::to_string(conn->GetPort()));
     HandleError(fd);
     return;
   }
 
-  conn->UpdateHeartbeat();
-
-  size_t data_len = conn->GetReadBufferSize();
-  if (data_len == 0) {
+  // 真正的错误
+  if (ret < 0 && errno != EAGAIN && errno != EWOULDBLOCK) {
+    LOG_ERROR("Recv error: " + std::string(strerror(errno)));
+    HandleError(fd);
     return;
   }
 
-  const char* data = conn->GetReadBuffer();
-  conn->AppendWriteBuffer(data, data_len);
-  conn->ConsumeReadBuffer(data_len);
+  // 读到数据了，开始回显
+  size_t data_len = conn->GetReadBufferSize();
+  if (data_len > 0) {
+    const char* data = conn->GetReadBuffer();
+    conn->AppendWriteBuffer(data, data_len);
+    conn->ConsumeReadBuffer(data_len);
 
-  ssize_t send_len = conn->Send();
-  if (send_len < 0) {
-    if (errno != EAGAIN && errno != EWOULDBLOCK) {
-      LOG_ERROR("Send error: " + std::string(strerror(errno)));
+    // 尝试发送
+    ssize_t send_ret = conn->Send();
+    if (send_ret < 0 && errno != EAGAIN && errno != EWOULDBLOCK) {
       HandleError(fd);
       return;
     }
-    ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
-  }
-  else {
-    if(conn->HasPendingData())
-    {
-      ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
-    }
-    else 
-    {
-      ModifyFd(fd, EPOLLIN | EPOLLET | EPOLLONESHOT);
-    }
   }
 
+  // ==============================================
+  // 🔥 超级重要：EPOLLONESHOT 必须重新设置事件！
+  // ==============================================
+  if (conn->HasPendingData()) {
+    ModifyFd(fd, EPOLLIN | EPOLLOUT | EPOLLET | EPOLLONESHOT);
+  } else {
+    ModifyFd(fd, EPOLLIN | EPOLLET | EPOLLONESHOT);
+  }
 }
 
 void EventLoop::HandleWrite(int fd) {
