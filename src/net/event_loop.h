@@ -5,7 +5,6 @@
 #include <thread>
 #include <atomic>
 #include "net/epoll.h"
-#include "conn/connection.h"
 
 namespace net {
 
@@ -115,6 +114,7 @@ private:
   std::atomic<bool> running_;           // 运行状态
   std::thread::id thread_id_;           // 创建此EventLoop的线程ID
   bool is_main_reactor_;                // 是否为主Reactor
+  int wakeup_fd_;                       // wakeup fd，用于 Stop() 时中断 epoll_wait
 };
 
 }  // namespace net

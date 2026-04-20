@@ -3,11 +3,13 @@
 #include <cstring>
 #include <errno.h>
 #include <signal.h>
+#include <sys/eventfd.h>
 #include <thread>
 
 namespace net {
 
 std::atomic<bool> Server::stop_requested_(false);
+int Server::signal_fd_(-1);
 
 Server& Server::GetInstance() {
   static Server instance;
@@ -77,6 +79,15 @@ void Server::Init(const Config& config) {
   conn_pool.StartHeartbeatCheck();
   LOG_INFO("Connection pool initialized");
 
+  // 创建 eventfd 用于中断 epoll_wait
+  signal_fd_ = eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
+  if (signal_fd_ == -1) {
+    LOG_ERROR("Failed to create eventfd");
+  } else {
+    main_loop_->AddFd(signal_fd_, EPOLLIN | EPOLLET);
+    LOG_INFO("Eventfd created for interrupting epoll_wait");
+  }
+
   // 注册信号处理
   signal(SIGINT, SignalHandler);
   signal(SIGTERM, SignalHandler);
@@ -126,6 +137,12 @@ void Server::Stop() {
   conn_pool.Shutdown();
   LOG_INFO("Connection pool shutdown");
 
+  // 关闭 eventfd
+  if (signal_fd_ != -1) {
+    close(signal_fd_);
+    signal_fd_ = -1;
+  }
+
   // 关闭监听socket
   if (listen_socket_) {
     listen_socket_->Close();
@@ -143,6 +160,11 @@ void Server::Wait() {
 void Server::SignalHandler(int signal) {
   LOG_INFO("Received signal " + std::to_string(signal));
   stop_requested_ = true;
+  // 向 eventfd 写入数据以中断 epoll_wait
+  if (signal_fd_ != -1) {
+    uint64_t tmp = 1;
+    [[maybe_unused]] ssize_t ret = write(signal_fd_, &tmp, sizeof(tmp));
+  }
 }
 
 void Server::MainEventLoop() {
@@ -188,7 +210,13 @@ void Server::MainEventLoop() {
 
       LOG_DEBUG("Main EventLoop: handling event for fd=" + std::to_string(fd));
 
-      if (fd == listen_socket_->GetFd()) {
+      if (fd == signal_fd_) {
+        uint64_t tmp;
+        [[maybe_unused]] ssize_t ret = read(signal_fd_, &tmp, sizeof(tmp));
+        LOG_INFO("Main EventLoop: received stop signal from eventfd");
+        running_ = false;
+        break;
+      } else if (fd == listen_socket_->GetFd()) {
         if (event.events & EPOLLIN) {
           LOG_DEBUG("Main EventLoop: accept event");
           HandleAccept();

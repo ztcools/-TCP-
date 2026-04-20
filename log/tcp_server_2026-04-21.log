@@ -1,0 +1,312 @@
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:35] ========================================
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:36]   TCP Server Initializing
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:37] ========================================
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:38] Listen IP: 0.0.0.0
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:39] Listen Port: 9999
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:40] Backlog: 128
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:41] Max Connections: 100000
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:42] Heartbeat Timeout: 60000ms
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:43] ========================================
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:69] Socket bound: 0.0.0.0:9999
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:76] Socket listening: backlog=128
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:53] Server listening on 0.0.0.0:9999
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=5, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:58] Main EventLoop created in main thread
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:63] Memory pool initialized: block_size=4096, block_count=10000
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:70] CPU cores: 16, IO threads: 15
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:16] Creating IO thread pool with 15 threads
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=6, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=7, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=8, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=9, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=10, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=11, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=12, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=13, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=14, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=15, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=16, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=17, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=18, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=19, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=20, max_events=102400
+[2026-04-21 00:02:19] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:74] IO thread pool initialized
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/conn/connection_pool.cpp:24] ConnectionPool initialized: max_connections=100000, heartbeat_timeout=60000ms
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/conn/connection_pool.cpp:130] ConnectionPool: heartbeat check started
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:80] Connection pool initialized
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:88] Eventfd created for interrupting epoll_wait
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:94] Signal handlers registered
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:96] Server initialized successfully
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:106] Server starting...
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 0 started
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 1 started
+[2026-04-21 00:02:20] [Thread:135945982572224] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 6985185724483880230
+[2026-04-21 00:02:20] [Thread:135945974179520] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 8709877192581875958
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 2 started
+[2026-04-21 00:02:20] [Thread:135945965786816] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 3469370143343789065
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 3 started
+[2026-04-21 00:02:20] [Thread:135945957394112] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 14203531314315682848
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 4 started
+[2026-04-21 00:02:20] [Thread:135945949001408] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 9890454644747636057
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 5 started
+[2026-04-21 00:02:20] [Thread:135945940608704] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 1585489721233358527
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 6 started
+[2026-04-21 00:02:20] [Thread:135945932216000] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 6349019072067292192
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 7 started
+[2026-04-21 00:02:20] [Thread:135945579919040] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 10639533349074428578
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 8 started
+[2026-04-21 00:02:20] [Thread:135945571526336] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 11817466508288538949
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 9 started
+[2026-04-21 00:02:20] [Thread:135945563133632] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 11406294054921948243
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 10 started
+[2026-04-21 00:02:20] [Thread:135945554740928] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 10945534943586402041
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 11 started
+[2026-04-21 00:02:20] [Thread:135945546348224] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 5253511185400014055
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 12 started
+[2026-04-21 00:02:20] [Thread:135945537955520] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 14869469920913655988
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 13 started
+[2026-04-21 00:02:20] [Thread:135945529562816] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 16331139634521426486
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 14 started
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:110] IO thread pool started
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:113] Main EventLoop will run in main thread
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:171] Main EventLoop started
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:192] Main EventLoop: all pointers are valid
+[2026-04-21 00:02:20] [Thread:135946552252224] [INFO] [/home/zt/-TCP-/src/net/server.cpp:193] Main EventLoop: listen_fd=4
+[2026-04-21 00:02:20] [Thread:135944975939264] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 15568320542468265427
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:35] ========================================
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:36]   TCP Server Initializing
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:37] ========================================
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:38] Listen IP: 0.0.0.0
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:39] Listen Port: 9999
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:40] Backlog: 128
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:41] Max Connections: 100000
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:42] Heartbeat Timeout: 60000ms
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:43] ========================================
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:69] Socket bound: 0.0.0.0:9999
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:76] Socket listening: backlog=128
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:53] Server listening on 0.0.0.0:9999
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=5, max_events=102400
+[2026-04-21 00:02:23] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:58] Main EventLoop created in main thread
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:63] Memory pool initialized: block_size=4096, block_count=10000
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:70] CPU cores: 16, IO threads: 15
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:16] Creating IO thread pool with 15 threads
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=6, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=7, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=8, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=9, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=10, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=11, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=12, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=13, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=14, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=15, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=16, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=17, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=18, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=19, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=20, max_events=102400
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:74] IO thread pool initialized
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/conn/connection_pool.cpp:24] ConnectionPool initialized: max_connections=100000, heartbeat_timeout=60000ms
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/conn/connection_pool.cpp:130] ConnectionPool: heartbeat check started
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:80] Connection pool initialized
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:88] Eventfd created for interrupting epoll_wait
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:94] Signal handlers registered
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:96] Server initialized successfully
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:106] Server starting...
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 0 started
+[2026-04-21 00:02:24] [Thread:140294822012608] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 3006278944090367693
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 1 started
+[2026-04-21 00:02:24] [Thread:140294813619904] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 8778522071461766343
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 2 started
+[2026-04-21 00:02:24] [Thread:140294805227200] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 18028599009963191482
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 3 started
+[2026-04-21 00:02:24] [Thread:140294796834496] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 7637118211606575090
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 4 started
+[2026-04-21 00:02:24] [Thread:140294788441792] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 17827355121170768067
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 5 started
+[2026-04-21 00:02:24] [Thread:140294780049088] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 16262431993430135021
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 6 started
+[2026-04-21 00:02:24] [Thread:140294435632832] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 6780112196521446963
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 7 started
+[2026-04-21 00:02:24] [Thread:140294427240128] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 7171070691859333186
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 8 started
+[2026-04-21 00:02:24] [Thread:140294418847424] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 9624288805479075238
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 9 started
+[2026-04-21 00:02:24] [Thread:140294410454720] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 11589511944481930635
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 10 started
+[2026-04-21 00:02:24] [Thread:140294402062016] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 151828697603177081
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 11 started
+[2026-04-21 00:02:24] [Thread:140294393669312] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 7808425041340666883
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 12 started
+[2026-04-21 00:02:24] [Thread:140294385276608] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 15915238395273026783
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 13 started
+[2026-04-21 00:02:24] [Thread:140293831653056] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 3603401257010062251
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 14 started
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:110] IO thread pool started
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:113] Main EventLoop will run in main thread
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:171] Main EventLoop started
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:192] Main EventLoop: all pointers are valid
+[2026-04-21 00:02:24] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:193] Main EventLoop: listen_fd=4
+[2026-04-21 00:02:24] [Thread:140293823260352] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:25] EventLoop started in thread: 13469409908476032764
+[2026-04-21 00:02:29] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:161] Received signal 2
+[2026-04-21 00:02:29] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:228] Main EventLoop stopped
+[2026-04-21 00:02:29] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:126] Server stopping...
+[2026-04-21 00:02:33] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:161] Received signal 2
+[2026-04-21 00:02:35] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:161] Received signal 2
+[2026-04-21 00:02:36] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:161] Received signal 2
+[2026-04-21 00:02:36] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:161] Received signal 2
+[2026-04-21 00:02:37] [Thread:140295317346112] [INFO] [/home/zt/-TCP-/src/net/server.cpp:161] Received signal 2
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:35] ========================================
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:36]   TCP Server Initializing
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:37] ========================================
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:38] Listen IP: 0.0.0.0
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:39] Listen Port: 9999
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:40] Backlog: 128
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:41] Max Connections: 100000
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:42] Heartbeat Timeout: 60000ms
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:43] ========================================
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:69] Socket bound: 0.0.0.0:9999
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:76] Socket listening: backlog=128
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:53] Server listening on 0.0.0.0:9999
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=5, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:58] Main EventLoop created in main thread
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:63] Memory pool initialized: block_size=4096, block_count=10000
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:70] CPU cores: 16, IO threads: 15
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:16] Creating IO thread pool with 15 threads
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=7, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=9, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=11, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=13, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=15, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=17, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=19, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=21, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=29, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=31, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=33, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=35, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=37, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=39, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=41, max_events=102400
+[2026-04-21 00:04:58] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:74] IO thread pool initialized
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/conn/connection_pool.cpp:24] ConnectionPool initialized: max_connections=100000, heartbeat_timeout=60000ms
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/conn/connection_pool.cpp:130] ConnectionPool: heartbeat check started
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:80] Connection pool initialized
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:88] Eventfd created for interrupting epoll_wait
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:94] Signal handlers registered
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:96] Server initialized successfully
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:106] Server starting...
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 0 started
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 1 started
+[2026-04-21 00:04:59] [Thread:132524100003520] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 16120683125308099518
+[2026-04-21 00:04:59] [Thread:132524234221248] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 17703933886139120970
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 2 started
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 3 started
+[2026-04-21 00:04:59] [Thread:132524225828544] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 15720554256358258725
+[2026-04-21 00:04:59] [Thread:132524217435840] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 13637997383565601913
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 4 started
+[2026-04-21 00:04:59] [Thread:132524209043136] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 12630218458888754732
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 5 started
+[2026-04-21 00:04:59] [Thread:132524200650432] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 9355514767956887087
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 6 started
+[2026-04-21 00:04:59] [Thread:132524192257728] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 16441354512896003814
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 7 started
+[2026-04-21 00:04:59] [Thread:132524183865024] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 12489703033420431552
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 8 started
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 9 started
+[2026-04-21 00:04:59] [Thread:132524091610816] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 3026969614089145364
+[2026-04-21 00:04:59] [Thread:132524083218112] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 15475591008323449070
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 10 started
+[2026-04-21 00:04:59] [Thread:132524074825408] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 4038973501015199798
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 11 started
+[2026-04-21 00:04:59] [Thread:132524066432704] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 17539146259019750370
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 12 started
+[2026-04-21 00:04:59] [Thread:132524058040000] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 18267073708268775022
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 13 started
+[2026-04-21 00:04:59] [Thread:132524049647296] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 8846024163104190202
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 14 started
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:110] IO thread pool started
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:113] Main EventLoop will run in main thread
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:171] Main EventLoop started
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:192] Main EventLoop: all pointers are valid
+[2026-04-21 00:04:59] [Thread:132524729300800] [INFO] [/home/zt/-TCP-/src/net/server.cpp:193] Main EventLoop: listen_fd=4
+[2026-04-21 00:04:59] [Thread:132523162072768] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 7977811841499883195
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:35] ========================================
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:36]   TCP Server Initializing
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:37] ========================================
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:38] Listen IP: 0.0.0.0
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:39] Listen Port: 9999
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:40] Backlog: 128
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:41] Max Connections: 100000
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:42] Heartbeat Timeout: 60000ms
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:43] ========================================
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:48] Socket created: fd=4
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:69] Socket bound: 0.0.0.0:9999
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/socket.cpp:76] Socket listening: backlog=128
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:53] Server listening on 0.0.0.0:9999
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=5, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:58] Main EventLoop created in main thread
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:63] Memory pool initialized: block_size=4096, block_count=10000
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:70] CPU cores: 16, IO threads: 15
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:16] Creating IO thread pool with 15 threads
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=7, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=9, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=11, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=13, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=15, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=17, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=19, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=21, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=30, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=32, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=34, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=36, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=38, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=40, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/epoll.cpp:32] Epoll created: fd=42, max_events=102400
+[2026-04-21 00:08:26] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:74] IO thread pool initialized
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/conn/connection_pool.cpp:24] ConnectionPool initialized: max_connections=100000, heartbeat_timeout=60000ms
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/conn/connection_pool.cpp:130] ConnectionPool: heartbeat check started
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:80] Connection pool initialized
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:88] Eventfd created for interrupting epoll_wait
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:94] Signal handlers registered
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:96] Server initialized successfully
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:106] Server starting...
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 0 started
+[2026-04-21 00:08:27] [Thread:131643499083456] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 10597949874125994929
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 1 started
+[2026-04-21 00:08:27] [Thread:131643606542016] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 9625450284148917579
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 2 started
+[2026-04-21 00:08:27] [Thread:131643598149312] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 9453469630294695720
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 3 started
+[2026-04-21 00:08:27] [Thread:131643589756608] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 3889492891281594280
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 4 started
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 5 started
+[2026-04-21 00:08:27] [Thread:131643581363904] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 12266845902894558375
+[2026-04-21 00:08:27] [Thread:131643490690752] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 2818224670201726186
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 6 started
+[2026-04-21 00:08:27] [Thread:131643482298048] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 26517775217557014
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 7 started
+[2026-04-21 00:08:27] [Thread:131643473905344] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 11718318243303421600
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 8 started
+[2026-04-21 00:08:27] [Thread:131643465512640] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 15796641313210703818
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 9 started
+[2026-04-21 00:08:27] [Thread:131643457119936] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 15494947119717642728
+[2026-04-21 00:08:27] [Thread:131643448727232] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 4852144609162388334
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 10 started
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 11 started
+[2026-04-21 00:08:27] [Thread:131642693777088] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 9538879816036149764
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 12 started
+[2026-04-21 00:08:27] [Thread:131642685384384] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 17016967874574814940
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 13 started
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/io_thread_pool.cpp:41] IO thread 14 started
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:110] IO thread pool started
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:113] Main EventLoop will run in main thread
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:171] Main EventLoop started
+[2026-04-21 00:08:27] [Thread:131642676991680] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 16384974122468503224
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:192] Main EventLoop: all pointers are valid
+[2026-04-21 00:08:27] [Thread:131644102031168] [INFO] [/home/zt/-TCP-/src/net/server.cpp:193] Main EventLoop: listen_fd=4
+[2026-04-21 00:08:27] [Thread:131642668598976] [INFO] [/home/zt/-TCP-/src/net/event_loop.cpp:31] EventLoop started in thread: 1545013143240975617

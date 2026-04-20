@@ -109,6 +109,7 @@ class Server {
   std::shared_ptr<util::MemoryPool> memory_pool_;  // 内存池
   std::atomic<bool> running_;              // 运行状态
   static std::atomic<bool> stop_requested_;  // 停止请求标志
+  static int signal_fd_;                   // eventfd 文件描述符，用于中断 epoll_wait
 };
 
 }  // namespace net

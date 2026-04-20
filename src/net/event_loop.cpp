@@ -3,12 +3,18 @@
 #include "conn/connection_pool.h"
 #include <cstring>
 #include <errno.h>
+#include <sys/eventfd.h>
+#include <unistd.h>
 
 namespace net {
 
-EventLoop::EventLoop() 
-    : running_(false), is_main_reactor_(false) {
+EventLoop::EventLoop()
+    : running_(false), is_main_reactor_(false), wakeup_fd_(-1) {
   epoll_ = std::make_unique<Epoll>();
+  wakeup_fd_ = eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
+  if (wakeup_fd_ != -1) {
+    epoll_->AddFd(wakeup_fd_, EPOLLIN);
+  }
   thread_id_ = std::this_thread::get_id();
   LOG_DEBUG("EventLoop created in thread: " + std::to_string(std::hash<std::thread::id>{}(thread_id_)));
 }
@@ -42,6 +48,10 @@ void EventLoop::Loop() {
 
 void EventLoop::Stop() {
   running_ = false;
+  if (wakeup_fd_ != -1) {
+    uint64_t tmp = 1;
+    [[maybe_unused]] ssize_t ret = write(wakeup_fd_, &tmp, sizeof(tmp));
+  }
 }
 
 bool EventLoop::IsInLoopThread() const {
@@ -107,21 +117,18 @@ void EventLoop::HandleRead(int fd) {
     return;
   }
 
-  // 真正的错误
   if (ret < 0 && errno != EAGAIN && errno != EWOULDBLOCK) {
     LOG_ERROR("Recv error: " + std::string(strerror(errno)));
     HandleError(fd);
     return;
   }
 
-  // 读到数据了，开始回显
   size_t data_len = conn->GetReadBufferSize();
   if (data_len > 0) {
     const char* data = conn->GetReadBuffer();
     conn->AppendWriteBuffer(data, data_len);
     conn->ConsumeReadBuffer(data_len);
 
-    // 尝试发送
     ssize_t send_ret = conn->Send();
     if (send_ret < 0 && errno != EAGAIN && errno != EWOULDBLOCK) {
       HandleError(fd);
