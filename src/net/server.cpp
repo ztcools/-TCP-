@@ -1,7 +1,8 @@
 #include "net/server.h"
+#include "../conn/connection_pool.h"
 #include <cstring>
 #include <errno.h>
-#include <algorithm>
+#include <signal.h>
 #include <thread>
 
 namespace net {
@@ -49,12 +50,10 @@ void Server::Init(const Config& config) {
 
   LOG_INFO("Server listening on " + config_.ip + ":" + std::to_string(config_.port));
 
-  // 创建主Reactor的EventLoop（在主线程中运行）
   main_loop_ = std::make_unique<EventLoop>();
   main_loop_->SetMainReactor(true);
   main_loop_->AddFd(listen_socket_->GetFd(), EPOLLIN | EPOLLET);
-  main_loop_->Loop();
-  LOG_INFO("Main EventLoop initialized in main thread");
+  LOG_INFO("Main EventLoop created in main thread");
 
   // 创建内存池
   memory_pool_ = std::make_shared<util::MemoryPool>(

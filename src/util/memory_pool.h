@@ -2,9 +2,7 @@
 #define UTIL_MEMORY_POOL_H
 
 #include <cstddef>
-#include <cstdint>
 #include <mutex>
-#include <vector>
 #include <atomic>
 
 namespace util {

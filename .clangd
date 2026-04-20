@@ -1,6 +1,7 @@
 CompileFlags:
   Add:
     - -std=c++17
-    - -I/home/zt/server/tcp_server/src
+    - -I/home/zt/-TCP-/src
     - -I/usr/include
     - -I/usr/local/include
+    - -DCMAKE_BUILD_TYPE=Release

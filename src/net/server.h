@@ -4,14 +4,11 @@
 #include <string>
 #include <memory>
 #include <atomic>
-#include <signal.h>
 #include "util/log.h"
 #include "util/memory_pool.h"
 #include "net/socket.h"
 #include "net/event_loop.h"
 #include "net/io_thread_pool.h"
-#include "conn/connection.h"
-#include "conn/connection_pool.h"
 
 namespace net {
 
@@ -32,7 +29,7 @@ class Server {
    */
   struct Config {
     std::string ip = "0.0.0.0";              // 监听 IP 地址
-    uint16_t port = 8888;                     // 监听端口
+    uint16_t port = 9999;                     // 监听端口
     int backlog = 128;                        // 监听队列大小
     size_t max_connections = 100000;          // 最大连接数
     int64_t heartbeat_timeout_ms = 60000;     // 心跳超时时间（毫秒）
